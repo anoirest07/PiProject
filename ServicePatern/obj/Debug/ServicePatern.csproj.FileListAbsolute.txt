@@ -1,0 +1,17 @@
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\ServicePatern.dll.config
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\ServicePatern.dll
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\ServicePatern.pdb
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\Data.dll
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\EntityFramework.dll
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\Data.pdb
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\Data.dll.config
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\EntityFramework.xml
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\obj\Debug\ServicePatern.csprojAssemblyReference.cache
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\obj\Debug\ServicePatern.csproj.CoreCompileInputs.cache
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\obj\Debug\ServicePatern.csproj.CopyComplete
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\obj\Debug\ServicePatern.dll
+C:\Users\marwa\source\repos\Projetpi\ServicePatern\obj\Debug\ServicePatern.pdb

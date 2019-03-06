@@ -1,0 +1,17 @@
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\Data.dll.config
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\Data.dll
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\Data.pdb
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\Domain.dll
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\EntityFramework.dll
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\Domain.pdb
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\Domain.dll.config
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\EntityFramework.xml
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\marwa\source\repos\Projetpi\Data\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\marwa\source\repos\Projetpi\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Users\marwa\source\repos\Projetpi\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\marwa\source\repos\Projetpi\Data\obj\Debug\Data.csproj.CopyComplete
+C:\Users\marwa\source\repos\Projetpi\Data\obj\Debug\Data.dll
+C:\Users\marwa\source\repos\Projetpi\Data\obj\Debug\Data.pdb
