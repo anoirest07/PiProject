@@ -1,0 +1,191 @@
+﻿@using EventManage.Models
+@model EventManage.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="home" class="divider bg-lighter">
+    <div class="display-table">
+        <div class="display-table-cell">
+            
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-7 col-12 ml-auto">
+                                    <div class="info info-horizontal">
+
+                                        <div class="icon">
+                                            <i class="fa fa-umbrella"></i>
+                                        </div>
+                                        <div class="description">
+                                            <h3> We've got you covered </h3>
+                                            <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient. Everything you need in a single case.</p>
+                                        </div>
+                                    </div>
+                                    <div class="info info-horizontal">
+                                        <div class="icon">
+                                            <i class="fa fa-map-signs"></i>
+                                        </div>
+                                        <div class="description">
+                                            <h3> Clear Directions </h3>
+                                            <p>Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.</p>
+                                        </div>
+                                    </div>
+                                    <div class="info info-horizontal">
+                                        <div class="icon">
+                                            <i class="fa fa-user-secret"></i>
+                                        </div>
+                                        <div class="description">
+                                            <h3> We value your privacy </h3>
+                                            <p>Completely synergize resource taxing relationships via premier niche markets.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-5 col-12 mr-auto">
+                                    <div class="card card-register">
+                                        
+                                        <div class="division">
+
+                                            <div class="line r"></div>
+                                        </div>
+                                        <div class="register-form">
+
+                                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.ValidationSummary("", new { @class = "text-danger" })
+                                                <div class="icon-box mb-0 p-0">
+                                                    <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                                                        <i class="pe-7s-users"></i>
+                                                    </a>
+                                                    <h4 class="text-gray pt-10 mt-0 mb-30">Don't have an Account? Register Now.</h4>
+                                                </div>
+                                                <hr>
+                                                <p class="text-gray">Enter your information.</p>
+
+                                                <div class="row">
+                                                    <div class="col-md-12 xs-text-center">
+                                                        <h4>ARE YOU A :</h4>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(x => x.Role)<br />
+                                                            @Html.DropDownList("Role",
+                                                new SelectList(Enum.GetValues(typeof(Role))),
+                                                "Select a role",
+                                                new { @class = "form-control", @onChange = "THEFUNCTION(this.selectedIndex);" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div>
+                                                    <div>
+
+                                                        @Html.LabelFor(x => x.LastName)<br />
+                                                        @Html.TextBoxFor(x => x.LastName,
+                                                     new { @class = "form-control" })
+                                                    </div>
+                                                    <div>
+
+                                                        @Html.LabelFor(x => x.FirstName)<br />
+                                                        @Html.TextBoxFor(x => x.FirstName,
+                                                    new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                                <div class="box_form">
+                                                    <div class="form-group">
+
+                                                        @Html.LabelFor(x => x.Email)<br />
+                                                        @Html.TextBoxFor(x => x.Email,
+                                                   new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                                <div class="box_form">
+                                                    <div class="form-group ">
+
+                                                        @Html.LabelFor(x => x.Password)<br />
+                                                        @Html.PasswordFor(x => x.Password,
+                                                    new { @class = "form-control" })
+                                                    </div>
+                                                    <div class="form-group">
+
+                                                        @Html.LabelFor(x => x.ConfirmPassword)<br />
+                                                        @Html.PasswordFor(x => x.ConfirmPassword,
+                                                    new { @class = "form-control" })
+                                                    </div>
+                                                    <div class="box_form">
+                                                        <div class="form-group">
+
+                                                            @Html.LabelFor(x => x.PhoneNumber)<br />
+                                                            @Html.TextBoxFor(x => x.PhoneNumber,
+                                                         new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="box_form">
+                                                        <div class="form-group">
+
+                                                            @Html.LabelFor(x => x.Gender)<br />
+                                                            @Html.DropDownList("Gender",
+                                                        new SelectList(Enum.GetValues(typeof(Gender))),
+                                                        "Select a gender",
+                                                            new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="box_form">
+                                                        <div class="form-group">
+
+                                                            @Html.LabelFor(x => x.BirthDate)<br />
+                                                            @Html.TextBoxFor(x => x.BirthDate,
+                                                         new { @class = "form-control", type = "date" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="box_form">
+                                                        <div class="form-group">
+
+                                                            @Html.LabelFor(x => x.City)<br />
+                                                            @Html.DropDownList("City",
+                                                new SelectList(Enum.GetValues(typeof(City))),
+                                                "Select city",
+                                                new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box_form">
+                                                        <div class="form-group">
+
+                                                            @Html.LabelFor(x => x.HomeAddress)<br />
+                                                            @Html.TextBoxFor(x => x.HomeAddress,
+                                                         new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div id="pass-info" class="clearfix"></div>
+                                                    <!--Checkbox obligatoire-->
+                                                    <div class="form-group">
+                                                        @Html.CheckBoxFor(x => x.TermsAndConditions,
+
+                                                         new { @id = "check_2" })
+                                                        @Html.LabelFor(x => x.TermsAndConditions)
+                                                        @Html.ValidationMessageFor(x => x.TermsAndConditions)
+
+                                                    </div>
+
+                                                    <button class="btn btn-block btn-round">Register</button>
+                                                </div>
+                                                <div class="login">
+                                                    <p>
+                                                        Already have an account?
+                                                        <a href="~/Account/Login">Log in</a>.
+                                                    </p>
+                                                </div>
+                                           
+                        
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+                                </div>
+                            </div>
+        </div>
+    </div>
+</section>

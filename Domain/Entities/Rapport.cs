@@ -4,16 +4,20 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities;
 
 namespace Domain.Entities
 {
    public class Rapport
     {
-        public int IdRapport;
-        public String Contenu ;
+        [Key]
+        public int IdRapport { get; set; }
+        public string Contenu { get; set; }
         //id feedback 
         //id evenement
         [DataType(DataType.ImageUrl)]
-        public String ImageRapport;
+        public string ImageRapport { get; set; }
+
+
     }
 }

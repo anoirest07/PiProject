@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Conventions
+namespace BibData.Conventions
 {
    public class KeyConvention:Convention
     {
-        //selon la convention que je veux
         public KeyConvention()
         {
             Properties().Where(t => t.Name.EndsWith("Code")).Configure(t => t.IsKey());
+
         }
     }
 }

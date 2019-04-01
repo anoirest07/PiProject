@@ -1,11 +1,12 @@
 ﻿
+using DATA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Infrastructure
+namespace data.Infrastructure
 {
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {

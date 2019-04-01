@@ -1,0 +1,64 @@
+﻿@model EventManage.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Section: home -->
+<section id="home" class="divider bg-lighter">
+    <div class="display-table">
+        <div class="display-table-cell">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+                        <div class="card card-register">
+                            <h4 class="text-theme-colored mt-0 pt-5"> Welcome</h4>
+                            <hr>
+                            <p>Please enter your credentials.</p>
+                            <p></p>
+
+                            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "clearfix", @name = "login-form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label for="form_username_email">Email</label>
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label for="form_password">Password</label>
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Mot de passe" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <p>
+                                    @Html.ActionLink("Forget your password?", "ForgotPassword")
+                                </p>
+
+                                <div>
+                                    <button type="submit" class="btn btn-round btn-danger">Login</button>
+                                </div>
+                                <div class="clear text-center pt-10">
+                                    <a class="btn btn-round btn-danger" href="~/Account/Register">Not registred yet?</a>
+                                </div>
+
+
+                            }
+
+
+                        </div>
+                    </div>
+            </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<!-- end main-content -->

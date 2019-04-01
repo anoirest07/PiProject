@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Domain.Entities.User>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    
+<div class="collapse navbar-collapse __web-inspector-hide-shortcut__" data-nav-image="Content/assets/img/blurred-image-1.jpg" data-color="orange">
+    <ul class="nav-item ">
+        <li class="nav-link area-line">
+
+
+             Connected as @ViewBag.role  @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+
+        @if (TempData["role"] == "President")
+        {
+
+            <li class="dropdown nav-item">
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("Index", "Home")>Home</a></span>
+
+            </li>
+            <li class="dropdown nav-item">
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "", new { id = item.Id })>Requests</a></span>
+
+            </li>
+            <li class="dropdown nav-item">
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Treatments</a></span>
+
+            </li>
+            <li class="dropdown nav-item">
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Calendar</a></span>
+
+            </li>
+            <li class="dropdown nav-item">
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Performance</a></span>
+
+            </li>
+
+            <li class="dropdown nav-item">
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Days Off</a></span>
+
+            </li>
+
+        }
+        else
+        {
+
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggler nav-link" href=@Url.Action("", "", new { id = item.Id })>My treatments</a>
+
+            </li>
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Book appointment</a>
+            </li>
+
+
+        }
+    </ul>
+</div>
+        
+        
+
+        }

@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Conventions
+namespace BibData.Conventions
 {
    public class DateTimeConvention:Convention
     {
         public DateTimeConvention()
         {
-            Properties<DateTime>().Configure(t => t.HasColumnType("datetime2"));
+            this.Properties<DateTime>().Configure(t => t.HasColumnType("Datetime2"));
         }
     }
 }
