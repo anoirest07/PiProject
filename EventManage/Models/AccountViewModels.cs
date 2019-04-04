@@ -97,10 +97,12 @@ namespace EventManage.Models
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number*")]
         public string PhoneNumber { get; set; }
-        [Display(Name = "Gender*")]
+        [Display(Name = "Gender")]
         [EnumDataType(typeof(Gender))]
         public string Gender { get; set; }
-        [Display(Name = "Birth Date*")]
+        [Display(Name = "Birth Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
 
         public DateTime BirthDate { get; set; }
         [Display(Name = "City*")]
@@ -125,6 +127,7 @@ namespace EventManage.Models
 
         [Display(Name = "Location*")]
         public string Location { get; set; }
+        public string Image { get; set; }
     }
 
     public class ResetPasswordViewModel

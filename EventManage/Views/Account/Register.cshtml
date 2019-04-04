@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="register-form">
 
-                                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
                                             {
                                                 @Html.AntiForgeryToken()
                                                 @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -155,6 +155,15 @@
                                                             @Html.LabelFor(x => x.HomeAddress)<br />
                                                             @Html.TextBoxFor(x => x.HomeAddress,
                                                          new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="box_form">
+                                                        <div class="form-group">
+
+                                                            @Html.LabelFor(x => x.Image)<br />
+                                                            @Html.TextBox("Image", null, new { type = "file" })
+                                                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+
                                                         </div>
                                                     </div>
                                                     <div id="pass-info" class="clearfix"></div>

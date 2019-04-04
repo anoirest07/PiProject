@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using EventManage.Models;
 using Domain.Entities;
 using Domain;
+using System.IO;
 
 namespace EventManage.Controllers
 {
@@ -150,14 +151,26 @@ namespace EventManage.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase Image)
         {
             if (model.Role == "Participant")
             {
                 if (ModelState.IsValid)
                 {
-                    var user = new Participant { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
+
+                    var fileName = Path.GetFileName(Image.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Upload/"), fileName);
+                    Image.SaveAs(path);
+                    var user = new Participant { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress,Image=fileName };
                     var result = await Manager.CreateAsync(user, model.Password);
+
+                    
+                    
+
+                    // var path = Path.Combine(Server.MapPath("~/Content/Upload/"), Image.FileName);
+
+                    // Image.SaveAs(path);
+                    //// model.Image = Image.FileName;
                     if (result.Succeeded)
                     {
 
@@ -181,10 +194,16 @@ namespace EventManage.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var user = new President {  UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
+                    var fileName = Path.GetFileName(Image.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Upload/"), fileName);
+                    Image.SaveAs(path);
+
+                    var user = new President { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress, Image = fileName };
                     var result = await Manager.CreateAsync(user, model.Password);
 
-
+                    //var path = Path.Combine(Server.MapPath("~/Content/Upload/"), Image.FileName);
+                    //Image.SaveAs(path);
+                   // model.Image = Image.FileName;
 
                     if (result.Succeeded)
                     {
@@ -206,11 +225,11 @@ namespace EventManage.Controllers
                 return View(model);
             }
 
-            else 
+            else
             {
                 if (ModelState.IsValid)
                 {
-                    var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
+                    var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress, Image = model.Image };
 
                     var result = await Manager.CreateAsync(user, model.Password);
                     if (result.Succeeded)

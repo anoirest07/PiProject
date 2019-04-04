@@ -1,0 +1,62 @@
+﻿a/Créez le nom d'utilisateur de base de données locale Cust1 avec le mot de passe ciscopppoe.
+
+ISP(config)# username Cust1 password ciscopppoe
+
+
+/Créez un pool d'adresses qui seront attribuées aux clients.
+ISP(config)# ip local pool PPPoEPOOL 10.0.0.1 10.0.0.10
+
+
+/Créez le modèle virtuel et associez-lui l'adresse IP de l'interface G0/1.
+ Associez le modèle virtuel au pool
+d'adresses. 
+Configurez le protocole CHAP afin d'authentifier les clients.
+
+ISP(config)# interface virtual-template 1
+
+ISP(config-if)# ip address 10.0.0.254 255.255.255.0
+
+ISP(config-if)# mtu 1492
+
+ISP(config-if)# peer default ip address pool PPPoEPOOL
+
+ISP(config-if)# ppp authentication chap callin
+
+ISP(config-if)# exit
+
+d/Attribuez le modèle au groupe PPPoE
+.
+ISP(config)# bba-group pppoe global
+
+ISP(config-bba-group)# virtual-template 1
+
+ISP(config-bba-group)# exit
+
+e. Associez le groupe bba à l'interface physique G0/1.
+ISP(config)# interface g0/1
+ISP(config-if# pppoe enable group global
+ISP(config-if)# no shutdown*
+
+Partie 3 : Configuration du routeur Cust1
+Dans la Partie 3, vous allez configurer le routeur Cust1 à l'aide de paramètres PPPoE.
+a. Configurez l'interface G0/1 pour la connectivité PPPoE.
+Cust1(config)# interface g0/1
+Cust1(config-if)# pppoe enable
+Cust1(config-if)# pppoe-client dial-pool-number 1
+Cust1(config-if)# exit
+b. Associez l'interface G0/1 à une interface de numérotation. Utilisez le nom d'utilisateur Cust1 et le mot de
+passe ciscopppoe configurés à la Partie 2.
+Cust1(config)# interface dialer 1
+Cust1(config-if)# mtu 1492
+Cust1(config-if)# ip address negotiated
+Cust1(config-if)# encapsulation ppp
+Cust1(config-if)# dialer pool 1
+Cust1(config-if)# ppp authentication chap callin
+Cust1(config-if)# ppp chap hostname Cust1
+Cust1(config-if)# ppp chap password ciscopppoe
+Cust1(config-if)# exit
+c. Configurez une route statique par défaut pointant vers l'interface de numérotation.
+Cust1(config)# ip route 0.0.0.0 0.0.0.0 dialer 1
+d. Configurez le débogage sur le routeur Cust1 de manière à afficher la négociation PPP et PPPoE.
+Cust1# debug ppp authentication
+Cust1# debug pppoe events

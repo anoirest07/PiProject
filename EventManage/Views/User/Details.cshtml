@@ -1,0 +1,77 @@
+﻿@model EventManage.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="profile-content section">
+    <div class="container">
+        <div class="row">
+            <div class="profile-picture">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-new img-no-padding">
+                        @*recuperer l'image*@
+                        @{string path = "~/Content/Upload/" + @Html.DisplayFor(model => model.Image);}
+                        @*enlever label for pour afficher seulement l'image*@
+                        <img src="@Url.Content(path)" width="120" height="120" />
+                    </div>
+                    <div class="name">
+                        <h4 class="title text-center">
+                            @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                            <br />
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Gender)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HomeAddress)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HomeAddress)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.City)
+                </dd>
+                <br />
+                <button class="btn btn-default">
+                    <i class=""></i>     @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+                </button>
+            </div>
+        </div>
+       
+       
+            </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -37,14 +37,11 @@
 
             </li>
             <li class="dropdown nav-item">
-                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Performance</a></span>
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("Details", "User",new { id = item.Id })>My Profil</a></span>
 
             </li>
 
-            <li class="dropdown nav-item">
-                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Days Off</a></span>
-
-            </li>
+           
 
         }
         else
@@ -55,7 +52,7 @@
 
             </li>
             <li class="dropdown nav-item">
-                <a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Book appointment</a>
+                <a class="dropdown-toggler nav-link" href=@Url.Action("Details", "User",new { id = item.Id })>My Profil</a>
             </li>
 
 

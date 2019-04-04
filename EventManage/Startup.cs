@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using Stripe;
 
 [assembly: OwinStartupAttribute(typeof(EventManage.Startup))]
 namespace EventManage
@@ -9,6 +10,11 @@ namespace EventManage
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            StripeConfiguration.SetApiKey("sk_test_710GBYxzG4bxy6ZYwyaxv9Uj");
+
+            
         }
+       
+
     }
 }
