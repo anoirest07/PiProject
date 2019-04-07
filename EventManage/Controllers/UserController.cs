@@ -16,6 +16,7 @@ namespace EventManage.Controllers
     public class UserController : Controller
     {
         IUserService US = new UserService();
+        
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         // GET: User
@@ -85,6 +86,7 @@ namespace EventManage.Controllers
         public ActionResult Edit(int id)
         {
             var bib = US.GetById(id);
+            
 
 
             UserViewModel uvm = new UserViewModel();

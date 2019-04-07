@@ -16,6 +16,7 @@ namespace Domain.Entities
         //id participant
         //id evenement
         public Evenement Evenement { get; set; }
+        public int IdEvent { get; set; }
         public virtual ICollection<Participant> ParticipantAchat { get; set; }
     }
 }

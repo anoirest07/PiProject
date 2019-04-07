@@ -16,5 +16,13 @@ namespace Service
         public UserService() : base(uow)
         {
         }
+        public List<User> getUsers()
+        {
+            IEnumerable<User> Users = from User in uow.getRepository<User>().GetMany()
+
+                                      select User;
+            List<User> list = Users.ToList<User>();
+            return list;
+        }
     }
 }

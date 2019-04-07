@@ -13,6 +13,7 @@ namespace DATA.Cofiguration
         public TicketConfig()
         {
             HasMany<Participant>(y => y.ParticipantAchat).WithMany(o => o.AchatParticipant).Map(t => t.ToTable("Achat"));
+            HasRequired<Evenement>(t => t.Evenement).WithMany(t => t.Tickets).HasForeignKey(t => t.IdEvent);
 
         }
     }

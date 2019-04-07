@@ -17,6 +17,7 @@ namespace EventManage.Controllers
         IUserService uus = new UserService();
         public ActionResult Index()
         {
+            
             return View();
         }
 

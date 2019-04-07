@@ -111,17 +111,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TicketSer\ITicketService.cs" />
+    <Compile Include="TicketSer\TicketService.cs" />
     <Compile Include="UserSer\IUserService.cs" />
-    <Compile Include="NotificationSer\INotificationService.cs" />
-    <Compile Include="NotificationSer\NotificationService.cs" />
-    <Compile Include="OrganizerSer\IOrganizerService.cs" />
-    <Compile Include="OrganizerSer\OrganizerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSer\ServiceUser.cs" />
-    <Compile Include="TacheSer\ITacheService.cs" />
-    <Compile Include="TacheSer\TacheService.cs" />
-    <Compile Include="TeamSer\ITeamService.cs" />
-    <Compile Include="TeamSer\TeamService.cs" />
     <Compile Include="UserSer\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
