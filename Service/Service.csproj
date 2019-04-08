@@ -111,6 +111,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AchatSer\AchatService.cs" />
+    <Compile Include="AchatSer\IAchatService.cs" />
     <Compile Include="TicketSer\ITicketService.cs" />
     <Compile Include="TicketSer\TicketService.cs" />
     <Compile Include="UserSer\IUserService.cs" />

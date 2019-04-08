@@ -1,5 +1,6 @@
 ﻿using DATA;
 using Domain.Entities;
+using Domaine.Entities;
 using EventManage.Models;
 using Microsoft.AspNet.Identity;
 using Service.TicketSer;
@@ -20,27 +21,32 @@ namespace EventManage.Controllers
     {
         ITicketService it = new TicketService();
         // GET: Ticket
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            List<TicketViewModel> ticket = new List<TicketViewModel>();
-            var r = it.GetAll();
-            foreach (var item in r)
-            {
-                TicketViewModel pvm = new TicketViewModel();
-                if (item.IdEvent == id)
-                {
-                    pvm.IdTicket = item.IdTicket;
-                    pvm.Prix = item.Prix;
-                    pvm.IdEvent = item.IdEvent;
-                   
-                    
+            //List<TicketViewModel> ticket = new List<TicketViewModel>();
+            //var r = it.GetAll();
+            //foreach (var item in r)
+            //{
+            //    TicketViewModel pvm = new TicketViewModel();
+            //    if (item.IdEvent == id)
+            //    {
+            //        pvm.IdTicket = item.IdTicket;
+            //        pvm.Prix = item.Prix;
+            //        pvm.IdEvent = item.IdEvent;
 
-                
-                ticket.Add(pvm);
-                }
-            }
 
-            return View(ticket);
+
+
+            //    ticket.Add(pvm);
+            //    }
+            //}
+            
+           
+            
+
+
+
+            return View();
             
         }
 
@@ -79,6 +85,7 @@ namespace EventManage.Controllers
             //ctx.SaveChanges();
             T.IdEvent = tvm.IdEvent=id;
             T.Prix = tvm.Prix;
+            
             
             
             it.Add(T);

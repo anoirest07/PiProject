@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Domain.Entities;
-
+using Domaine.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 
@@ -33,6 +33,7 @@ namespace DATA
         }
         
         public DbSet<Evenement> Evenement { get; set; }
+        public DbSet<Achat> Achat { get; set; }
 
         public DbSet<Feedback> Feedback { get; set; }
 
@@ -56,9 +57,10 @@ namespace DATA
             modelBuilder.Configurations.Add(new Cofiguration.TacheConfig());
             modelBuilder.Configurations.Add(new Cofiguration.RecomendationConfig());
             modelBuilder.Configurations.Add(new Cofiguration.CommentConfig());
+            modelBuilder.Configurations.Add(new Cofiguration.AchatConfig());
 
 
-            
+
 
 
         }

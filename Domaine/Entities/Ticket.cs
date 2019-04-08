@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domaine.Entities;
 
 namespace Domain.Entities
 {
@@ -17,6 +18,7 @@ namespace Domain.Entities
         //id evenement
         public Evenement Evenement { get; set; }
         public int IdEvent { get; set; }
-        public virtual ICollection<Participant> ParticipantAchat { get; set; }
+       // public virtual ICollection<Participant> ParticipantAchat { get; set; }
+        public virtual ICollection<Achat> Achats { get; set; }
     }
 }

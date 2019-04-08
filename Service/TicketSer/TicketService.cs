@@ -16,6 +16,21 @@ namespace Service.TicketSer
         private static IUnitOfWork uow = new UnitOfWork(dbfactory);
         public TicketService() : base(uow)
         {
+
         }
-    }
+        //public int FindidTicket(int id)
+        //{
+
+        //    // return this.GetById(e. == id);
+        //    return this.GetMany().Where(e=>e.IdEvent==id);
+        //}
+            
+            
+
+
+
+
+        }
+       
 }
+
