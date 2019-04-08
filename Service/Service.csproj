@@ -113,6 +113,14 @@
   <ItemGroup>
     <Compile Include="AchatSer\AchatService.cs" />
     <Compile Include="AchatSer\IAchatService.cs" />
+    <Compile Include="NotificationSer\INotificationService.cs" />
+    <Compile Include="NotificationSer\NotificationService.cs" />
+    <Compile Include="OrganizerSer\IOrganizerService.cs" />
+    <Compile Include="OrganizerSer\OrganizerService.cs" />
+    <Compile Include="TacheSer\ITacheService.cs" />
+    <Compile Include="TacheSer\TacheService.cs" />
+    <Compile Include="TeamSer\ITeamService.cs" />
+    <Compile Include="TeamSer\TeamService.cs" />
     <Compile Include="TicketSer\ITicketService.cs" />
     <Compile Include="TicketSer\TicketService.cs" />
     <Compile Include="UserSer\IUserService.cs" />
