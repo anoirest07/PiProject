@@ -11,6 +11,7 @@ namespace EventManage.Models
         public int IdTicket { get; set; }
         public float Prix { get; set; }
         public Evenement Evenement { get; set; }
+        public string Logo { get; set; }
         public int IdEvent { get; set; }
         public virtual ICollection<Participant> ParticipantAchat { get; set; }
         public class CustomViewModel

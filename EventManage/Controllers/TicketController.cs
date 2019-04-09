@@ -8,6 +8,7 @@ using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 
 using System.Web;
@@ -16,7 +17,7 @@ using static EventManage.Models.TicketViewModel;
 
 namespace EventManage.Controllers
 {
-    
+    //[Authorize(Roles ="")]
     public class TicketController : Controller
     {
         ITicketService it = new TicketService();
@@ -71,7 +72,7 @@ namespace EventManage.Controllers
 
         // POST: Ticket/Create
         [HttpPost]
-        public ActionResult Create(TicketViewModel tvm, int id)
+        public ActionResult Create(TicketViewModel tvm, int id, HttpPostedFileBase Image)
         {
 
             Ticket T = new Ticket();
@@ -83,7 +84,12 @@ namespace EventManage.Controllers
             //     });
 
             //ctx.SaveChanges();
+
+            var fileName = Path.GetFileName(Image.FileName);
+            var path = Path.Combine(Server.MapPath("~/Content/Upload/"), fileName);
+            Image.SaveAs(path);
             T.IdEvent = tvm.IdEvent=id;
+            T.Logo = Image.FileName;
             T.Prix = tvm.Prix;
             
             

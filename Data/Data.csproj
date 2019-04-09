@@ -121,9 +121,13 @@
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\201904072214394_v1.cs" />
-    <Compile Include="Migrations\201904072214394_v1.Designer.cs">
-      <DependentUpon>201904072214394_v1.cs</DependentUpon>
+    <Compile Include="Migrations\201904081843592_v1.cs" />
+    <Compile Include="Migrations\201904081843592_v1.Designer.cs">
+      <DependentUpon>201904081843592_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904090020572_v2.cs" />
+    <Compile Include="Migrations\201904090020572_v2.Designer.cs">
+      <DependentUpon>201904090020572_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,8 +143,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904072214394_v1.resx">
-      <DependentUpon>201904072214394_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904081843592_v1.resx">
+      <DependentUpon>201904081843592_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904090020572_v2.resx">
+      <DependentUpon>201904090020572_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

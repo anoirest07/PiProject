@@ -11,8 +11,10 @@ using Domain.Entities;
 
 namespace Domain.Entities
 {
- public class User :IdentityUser<int, CustomUserLogin, CustomUserRole, CustomUserClaim>
+    
+    public class User : IdentityUser<int, CustomUserLogin, CustomUserRole, CustomUserClaim>
     {
+
         public String LastName { get; set; }
         public String FirstName { get; set; }
         public override String Email { get; set; }
@@ -21,13 +23,15 @@ namespace Domain.Entities
         [MinLength(8)]
         public String Password { get; set; }
         public string Gender { get; set; }
-    
+
         public DateTime BirthDate { get; set; }
         public string City { get; set; }
         public string HomeAddress { get; set; }
-        
+
         public string Image { get; set; }
-       
+        
+        
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, int> manager)
         {

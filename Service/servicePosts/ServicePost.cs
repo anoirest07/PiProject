@@ -17,24 +17,24 @@ namespace Service.servicePosts
         {
         }
 
-        public IEnumerable<Post> ListCategorie()
-        {
-            var c = GetMany(t => t.Category == Categorie.type1);
-            foreach (var item in c)
-            {
-                Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title+ " Departement" + item.Description +"    " + item.Photo +"  "+item.PostedOn);
-            }
-            return c;
-        }
+        //public IEnumerable<Post> ListCategorie()
+        //{
+        //    //var c = GetMany(t => t.Category == Categorie.type1);
+        //    //foreach (var item in c)
+        //    //{
+        //    //    Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title+ " Departement" + item.Description +"    " + item.Photo +"  "+item.PostedOn);
+        //    //}
+        //    //return c;
+        //}
 
-        public IEnumerable<Post> ListCategorie2()
-        {
-            var c = GetMany(t => t.Category == Categorie.type2);
-            foreach (var item in c)
-            {
-                Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title + " Departement" + item.Description + "    " + item.Photo + "  " + item.PostedOn);
-            }
-            return c;
-        }
+        //public IEnumerable<Post> ListCategorie2()
+        //{
+        //    //var c = GetMany(t => t.Category == Categorie.type2);
+        //    //foreach (var item in c)
+        //    //{
+        //    //    Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title + " Departement" + item.Description + "    " + item.Photo + "  " + item.PostedOn);
+        //    //}
+        //    //return c;
+        //}
     }
 }

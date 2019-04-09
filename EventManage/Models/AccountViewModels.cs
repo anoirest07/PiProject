@@ -114,7 +114,7 @@ namespace EventManage.Models
 
 
         public Boolean Enabled { get; set; }
-        public DateTime RegistrationDate { get; set; }
+        
         [Display(Name = "Terms and Conditions")]
         [Range(typeof(bool), "true", "true", ErrorMessage = "You have to accept the Terms and Conditions!")]
         public bool TermsAndConditions { get; set; }
@@ -125,8 +125,7 @@ namespace EventManage.Models
 
 
 
-        [Display(Name = "Location*")]
-        public string Location { get; set; }
+        
         public string Image { get; set; }
     }
 

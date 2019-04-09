@@ -96,12 +96,58 @@ namespace EventManage.Controllers
         [System.Web.Http.Route("api/Register")]
         public async Task<IHttpActionResult> Register(RegisterViewModel model)
         {
-            if (model.Role == "Participant")
-            {
-                //var fileName = Path.GetFileName(Image.FileName);
-                //var path = Path.Combine(Server.MapPath("~/Content/Upload/"), fileName);
-                //Image.SaveAs(path);
-                var user = new Participant { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
+            //if (model.Role == "Participant")
+            //{
+            //    //var fileName = Path.GetFileName(Image.FileName);
+            //    //var path = Path.Combine(Server.MapPath("~/Content/Upload/"), fileName);
+            //    //Image.SaveAs(path);
+            //    var user = new Participant { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
+            //    var result = await UserManager.CreateAsync(user, model.Password);
+            //    if (result.Succeeded)
+            //    {
+
+            //        //  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+            //        // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
+            //        // Envoyer un message électronique avec ce lien
+            //        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            //        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            //        // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
+
+            //        return Ok(model);
+
+            //    }
+
+            //    // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
+            //    return Ok("Echec");
+            //}
+            //else if (model.Role == "President")
+            //{
+            //    var user = new President { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
+            //    var result = await UserManager.CreateAsync(user, model.Password);
+            //    if (result.Succeeded)
+            //    {
+
+            //        //  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+            //        // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
+            //        // Envoyer un message électronique avec ce lien
+            //        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            //        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            //        // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
+
+            //        return Ok(model);
+
+            //    }
+
+            //    // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
+            //    return Ok("Echec");
+            //}
+            //else
+            //{
+
+                var user = new User {  Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber,  Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -120,53 +166,7 @@ namespace EventManage.Controllers
 
                 // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
                 return Ok("Echec");
-            }
-            else if (model.Role == "President")
-            {
-                var user = new President { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-
-                    //  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Envoyer un message électronique avec ce lien
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-
-                    return Ok(model);
-
-                }
-
-                // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
-                return Ok("Echec");
-            }
-            else
-            {
-
-                var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Password = model.Password, PhoneNumber = model.PhoneNumber, PhoneNumberConfirmed = true, Gender = model.Gender, BirthDate = model.BirthDate, City = model.City, HomeAddress = model.HomeAddress };
-
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-
-                    //  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Envoyer un message électronique avec ce lien
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-
-                    return Ok(model);
-
-                }
-
-                // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
-                return Ok("Echec");
-            }
+            //}
 
         }
 
@@ -183,16 +183,20 @@ namespace EventManage.Controllers
                 applicationUsersToXml.Add(new WSUserModel
                 {
 
-                    Id = i.Id,
+                    //Id = i.Id,
                     LastName = i.LastName,
                     FirstName = i.FirstName,
                     Email = i.Email,
-                    Image = i.Image,
+                  //  Image = i.Image,
                     Password = i.Password,
                     Gender = i.Gender,
                     BirthDate = i.BirthDate,
                     City = i.City,
-                    HomeAddress = i.HomeAddress
+                    HomeAddress = i.HomeAddress,
+                    PhoneNumber=i.PhoneNumber
+                    
+
+                    
                     
                     
 
