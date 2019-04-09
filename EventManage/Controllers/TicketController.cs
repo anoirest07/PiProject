@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
-
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using static EventManage.Models.TicketViewModel;
@@ -55,11 +55,14 @@ namespace EventManage.Controllers
         public ActionResult Details(int id)
 
         {
-            var t = new Ticket();
+            //var t = it.GetAll();
+            var t = it.GetById(id);
             TicketViewModel tvm = new TicketViewModel();
-            tvm.IdTicket = t.IdTicket;
-            tvm.Prix = t.Prix;
-            
+   
+                    tvm.Prix = t.Prix;
+                    tvm.Logo = t.Logo;
+                    tvm.IdTicket = t.IdTicket;
+
             return View(tvm);
             
         }
@@ -106,26 +109,29 @@ namespace EventManage.Controllers
         // GET: Ticket/Edit/5
         public ActionResult Edit(int id)
         {
+           // var t = it.GetAll().Where(a => a.IdTicket == id).SingleOrDefault();
             var t = it.GetById(id);
             TicketViewModel tvm = new TicketViewModel();
-            tvm.IdTicket = t.IdTicket;
             tvm.Prix = t.Prix;
-            tvm.Evenement.Methodepai = t.Evenement.Methodepai;
+            tvm.Logo = t.Logo;
+           
             return View(tvm);
         }
 
         // POST: Ticket/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, HttpPostedFileBase Image, TicketViewModel tvm)
         {
             Ticket t = it.GetById(id);
-            TicketViewModel tvm = new TicketViewModel();
+            t.IdTicket = tvm.IdTicket;
             t.Prix = tvm.Prix;
-            t.Evenement.Methodepai = tvm.Evenement.Methodepai;
-            t.Evenement.NbPlaceEvent = tvm.Evenement.NbPlaceEvent;
+            var path = Path.Combine(Server.MapPath("~/Content/Upload/"), Image.FileName);
+            Image.SaveAs(path);
+            t.Logo = Image.FileName;
+          
             it.Update(t);
             it.Commit();
-            return RedirectToAction("Details","Ticket");
+            return RedirectToAction("Details", new { id = t.IdTicket });
         }
 
         // GET: Ticket/Delete/5
