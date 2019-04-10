@@ -122,6 +122,8 @@
     <Compile Include="NotificationSer\NotificationService.cs" />
     <Compile Include="OrganizerSer\IOrganizerService.cs" />
     <Compile Include="OrganizerSer\OrganizerService.cs" />
+    <Compile Include="ReclamationSer\IReclamationService.cs" />
+    <Compile Include="ReclamationSer\ReclamationService.cs" />
     <Compile Include="RecommendationService\IRecommendationService.cs" />
     <Compile Include="RecommendationService\RecommendationService.cs" />
     <Compile Include="servicePosts\IServicePost.cs" />

@@ -1,0 +1,89 @@
+﻿@model Domain.Entities.Feedback
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Feedback</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdFB)
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    <div class="form-group">
+
+        @*@Html.RadioButtonFor(m => m.Answer, "Excellent")
+            @Html.RadioButtonFor(m => m.Answer, "Good")
+            @Html.RadioButtonFor(m => m.Answer, "Neutral")
+            @Html.RadioButtonFor(m => m.Answer, "Poor")*@
+
+        <h2>How satisfied were you with our Product/Service?</h2>
+        <input id="Answer" name="Answer" value="Excellent" type="radio">
+        Excellent
+        <br />
+        <input id="Answer" name="Answer" value="Good" type="radio">
+        Good
+        <br />
+        <input id="Answer" name="Answer" value="Neutral" type="radio">
+        Neutral
+        <br />
+        <input id="Answer" name="Answer" value="Poor" type="radio">
+        Poor
+        <br />
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DescFB, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DescFB, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DescFB, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdEvent, "IdEvent", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IdEvent", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdEvent, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+            @Html.LabelFor(model => model.Id, "Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+            @Html.ActionLink("Back to List", "Index")
+
+        </div>
+    </div>
+</div>
+}
+

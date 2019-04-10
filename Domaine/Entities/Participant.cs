@@ -14,6 +14,7 @@ namespace Domain.Entities
         //  public  ICollection<Evenement> ParticipantEvents { get; set; }
        // public virtual ICollection<Ticket> AchatParticipant { get; set; }
         public virtual ICollection<Recomendation> Recomendations { get; set; }
+        public virtual ICollection<Reclamation> ReclamationParticipant { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Achat> Achats { get; set; }
     }

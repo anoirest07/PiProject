@@ -58,8 +58,12 @@
 
 
     @Styles.Render("~/Content/assets/css")
+
     <!-- Extra details for Live View on GitHub Pages -->
     <!-- Google Tag Manager -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -77,6 +81,9 @@
         })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
     </script>
     <!-- End Google Tag Manager -->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 </head>
 <body class="about-us sidebar-collapse">
     <!-- Extra details for Live View on GitHub Pages -->

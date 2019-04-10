@@ -46,6 +46,8 @@ namespace DATA
         public DbSet<Team> Team { get; set; }
 
         public DbSet<Ticket> Ticket { get; set; }
+        public DbSet<Reclamation> Reclamation { get; set; }
+        public DbSet<Answer> Answer { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -58,6 +60,8 @@ namespace DATA
             modelBuilder.Configurations.Add(new Cofiguration.RecomendationConfig());
             modelBuilder.Configurations.Add(new Cofiguration.CommentConfig());
             modelBuilder.Configurations.Add(new Cofiguration.AchatConfig());
+            modelBuilder.Configurations.Add(new Cofiguration.FeedbackConfig());
+            modelBuilder.Configurations.Add(new Cofiguration.ReclamationConfig());
 
 
 

@@ -1,0 +1,83 @@
+﻿@model Domain.Entities.Feedback
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/elegantfeedback/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<br /><br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+      <center>
+          <div>
+              <h6>Add new Feedback</h6>
+              <br /><br /><br /><br /><br />
+          </div>
+
+          <div>
+              <h2>How satisfied were you with our Product/Service?</h2>
+              <br />
+
+              <text>&nbsp;</text> <text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text>  <input id="Answer" name="Answer" value="Excellent" type="radio">
+              Excellent
+              <br />
+              <text>&nbsp;</text>  <input id="Answer" name="Answer" value="Good" type="radio">
+              Good
+              <br />
+              <text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text>  <input id="Answer" name="Answer" value="Neutral" type="radio">
+              Neutral
+              <br />
+              <input id="Answer" name="Answer" value="Poor" type="radio">
+              Poor
+              <br />
+              <br />
+          </div>
+
+          <div class="form-group">
+              <h2>    If you have something to say </h2>
+              @*@Html.LabelFor(model => model.DescFB, htmlAttributes: new { @class = "control-label col-md-2" })*@
+              <div class="col-md-4">
+                  @Html.EditorFor(model => model.DescFB, new { htmlAttributes = new { @class = "form-control" } })
+                  @Html.ValidationMessageFor(model => model.DescFB, "", new { @class = "text-danger" })
+              </div>
+          </div>
+          <br />
+          <div class="form-group">
+              <h2>    Event Name</h2>
+              @*@Html.LabelFor(model => model.IdEvent, "IdEvent", htmlAttributes: new { @class = "control-label col-md-2" })*@
+              <div class="col-md-4">
+                  @Html.DropDownList("IdEvent", null, htmlAttributes: new { @class = "form-control", type = "date" })
+                  @Html.ValidationMessageFor(model => model.IdEvent, "", new { @class = "text-danger" })
+              </div>
+          </div>
+          <br />
+
+          <div class="box_form">
+              <div class="form-group col-md-4">
+                  @Html.LabelFor(model => model.Date)<br />
+                  @Html.TextBoxFor(model => model.Date,
+               new { @class = "form-control", type = "date" })
+              </div>
+          </div>
+          <br />
+
+          <div class="form-group">
+              <div class="col-md-offset-2 col-md-10">
+                  <input type="submit" value="Create" class="btn btn-default" />
+                  @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-success" })
+
+              </div>
+
+
+          </div>
+      </center>
+
+}
+@*<br />
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <br /><br />*@

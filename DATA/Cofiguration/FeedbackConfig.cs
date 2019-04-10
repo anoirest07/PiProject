@@ -13,7 +13,7 @@ namespace DATA.Cofiguration
         public FeedbackConfig()
         {   // One to Many Evenement and Feedbacks
 
-            HasRequired<Evenement>(t => t.Events).WithMany(t => t.Feedbacks).HasForeignKey(t => t.EventFK);
+            HasRequired<Evenement>(t => t.Events).WithMany(t => t.Feedbacks).HasForeignKey(t => t.IdEvent);
             // HasRequired<Participant>(t => t.Participant).WithMany(t => t.FeedbacksParticipant).HasForeignKey(t => t.ParticipantFK);
 
 

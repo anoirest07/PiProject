@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domaine.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -27,7 +28,7 @@ namespace Domain.Entities
         public string Welcometext { get; set; }
         public Methodepaiement Methodepai { get; set; }
         public EtatEvent EtatEvenement { get; set; }
-
+        public virtual ICollection<Reclamation> Reclamations { get; set; }
 
         //relation
         public ICollection<Feedback> Feedbacks { get; set; }

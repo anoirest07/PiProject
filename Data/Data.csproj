@@ -108,6 +108,7 @@
     <Compile Include="Cofiguration\EvenementConfig.cs" />
     <Compile Include="Cofiguration\FeedbackConfig.cs" />
     <Compile Include="Cofiguration\RapportConfig.cs" />
+    <Compile Include="Cofiguration\ReclamationConfig.cs" />
     <Compile Include="Cofiguration\RecomendationConfig.cs" />
     <Compile Include="Cofiguration\TacheConfig.cs" />
     <Compile Include="Cofiguration\TeamConfig.cs" />
@@ -132,6 +133,14 @@
     <Compile Include="Migrations\201904090020572_v2.Designer.cs">
       <DependentUpon>201904090020572_v2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904100135187_g.cs" />
+    <Compile Include="Migrations\201904100135187_g.Designer.cs">
+      <DependentUpon>201904100135187_g.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904100216410_gte.cs" />
+    <Compile Include="Migrations\201904100216410_gte.Designer.cs">
+      <DependentUpon>201904100216410_gte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -151,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904090020572_v2.resx">
       <DependentUpon>201904090020572_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904100135187_g.resx">
+      <DependentUpon>201904100135187_g.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904100216410_gte.resx">
+      <DependentUpon>201904100216410_gte.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

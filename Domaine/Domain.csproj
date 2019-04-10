@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Achat.cs" />
+    <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Evenement.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\President.cs" />
     <Compile Include="Entities\Rapport.cs" />
+    <Compile Include="Entities\Reclamation.cs" />
     <Compile Include="Entities\Recomendation.cs" />
     <Compile Include="Entities\Tache.cs" />
     <Compile Include="Entities\Team.cs" />

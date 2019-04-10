@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Domain.Entities.Feedback>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+    <h2>My Feedbacks</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", new { @class = "btn btn-success" }, new { @class = "btn btn-success" })
+    </p>
+
+
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th></th>
+                    <th>Evaluation</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Events.NomEvent)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Participant.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Answer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DescFB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.IdFB }, new { @class = "btn btn-success" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.IdFB }, new { @class = "btn btn-default" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.IdFB }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+
+
+
+
+                }
+            </tbody>
+        </table>
+    </div>
+</center>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Events.NomEvent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescFB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+
+
+    </table>*@
