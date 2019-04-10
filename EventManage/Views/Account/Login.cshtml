@@ -1,4 +1,7 @@
-﻿@model EventManage.Models.LoginViewModel
+﻿@using EventManage.Models
+@model LoginViewModel
+
+
 
 @{
     ViewBag.Title = "Login";
@@ -50,15 +53,39 @@
                                 </div>
 
 
-                            }
 
 
+
+                                }
+
+                            </div>
+                            <div class="col-md-12">
+                                <section id="socialLoginForm">
+                                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                </section>
+                            </div>
+                        
                         </div>
-                    </div>
-            </div>
                 </div>
+            </div>
         </div>
     </div>
 </section>
+<br /><br />
+@section Scripts{
+    <script>
+        function connect() {
+            var emaill = document.getElementById("email").value;
+
+            var passwordd = document.getElementById("password").value;
+            console.log(passwordd);
+            $.ajax({
+                url: "/Home/getId",
+                type: "POST",
+                data: { 'email': emaill, 'password': passwordd }
+            });
+            console.log("Test");
+        }</script>
+}
 
 <!-- end main-content -->

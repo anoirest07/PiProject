@@ -13,7 +13,7 @@ namespace Domain.Entities
     {
         [Key]
         public int IdTicket { get; set; }
-        public float Prix { get; set; }
+        public long Prix { get; set; }
         public string Logo { get; set; }
         //id participant
         //id evenement

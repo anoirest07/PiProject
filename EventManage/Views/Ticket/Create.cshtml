@@ -7,15 +7,15 @@
 @using (Html.BeginForm("Create", "Ticket", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    
+<h1 class="area-line">Add Ticket</h1>
 <div class="container">
-    <h1 class="area-line">Add Ticket</h1>
+   
     <div>
         <div class="row">
             <div class="col-md-5 col-sm-5">
                 <h6>Ticket Logo</h6>
                 @*<div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                    <div class="fileinput-new thumbnail img-no-padding" style="max-width: 370px; max-height: 250px;">*@
+                <div class="fileinput-new thumbnail img-no-padding" style="max-width: 370px; max-height: 250px;">*@
                 <div class="fileinput fileinput-new" data-provides="fileinput" style="max-width: 370px; max-height: 250px;">
                     <div class="fileinput-new" style="max-width: 370px; max-height: 250px;">
                         <img src="~/Content/Upload/" width="120" height="120" />
@@ -31,7 +31,7 @@
                 @*<img src="~/Content/Upload/" alt="...">*@
                 @*</div>
 
-                    </div>*@
+                </div>*@
 
 
                 <h6>Tags</h6>
@@ -70,31 +70,31 @@
                 <div class="row price-row">
                     <div class="col-md-6">
                         <h6>
-                            Price
+                            @Html.LabelFor(model => model.Prix, htmlAttributes: new { @class = "control-label col-md-2" })
                             <span class="icon-danger">*</span>
-                            @Html.EditorFor(model => model.Prix, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Prix, "", new { @class = "text-danger" })
+
 
                         </h6>
-
+                        @Html.EditorFor(model => model.Prix, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Prix, "", new { @class = "text-danger" })
                     </div>
 
 
                 </div>
-                <div class="row buttons-row">
-                    <div class="col-md-4 col-sm-4">
-                        <button class="btn btn-outline-danger btn-block btn-round" type="reset">Cancel</button>
-                    </div>
 
-                    <div class="col-md-4 col-sm-4">
-                        <button class="btn btn-outline-primary btn-block btn-round" type="submit">Save</button>
-                    </div>
-
-                </div>
 
             </div>
         </div>
+        <div class="row buttons-row">
+            <div class="col-md-4 col-sm-4">
+                <button class="btn btn-outline-danger btn-block btn-round" type="reset">Cancel</button>
+            </div>
 
+            <div class="col-md-4 col-sm-4">
+                <button class="btn btn-outline-primary btn-block btn-round" type="submit"> Save</button>
+            </div>
+
+        </div>
     </div>
 </div>
 

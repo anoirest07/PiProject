@@ -1,1 +1,14 @@
-﻿
+﻿@using (Html.BeginForm("Charge", "Ticket", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <label> Price: $10.00 </label>
+
+    <script src="//checkout.stripe.com/v2/checkout.js"
+            class="stripe-button"
+            data-key="pk_test_3KBEbVPaLqfFOLMXZx82a2ig"
+            data-locale="auto"
+            data-description="Sample Charge"
+            data-amount="500">
+    </script>
+}

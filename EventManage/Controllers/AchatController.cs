@@ -2,11 +2,14 @@
 using EventManage.Models;
 using Microsoft.AspNet.Identity;
 using Service.AchatSer;
+using Stripe;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static EventManage.Models.TicketViewModel;
 
 namespace EventManage.Controllers
 {
@@ -48,8 +51,9 @@ namespace EventManage.Controllers
             AS.Commit();
 
 
-            return View(tvm);
-                      
+            return RedirectToAction("Charge", "Achat");
+
+
         }
 
         // GET: Achat/Edit/5
@@ -94,6 +98,33 @@ namespace EventManage.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult Custom()
+        {
+            string stripePublishableKey = ConfigurationManager.AppSettings["stripePublishableKey"];
+            var model = new CustomViewModel() { StripePublishableKey = stripePublishableKey, PaymentForHidden = true };
+            return View(model);
+        }
+        public ActionResult Charge(string stripeEmail, string stripeToken)
+        {
+            var customers = new CustomerService();
+            var charges = new ChargeService();
+
+            var customer = customers.Create(new CustomerCreateOptions
+            {
+                Email = stripeEmail,
+                SourceToken = stripeToken
+            });
+
+            var charge = charges.Create(new ChargeCreateOptions
+            {
+                Amount = 500,
+                Description = "Sample Charge",
+                Currency = "usd",
+                CustomerId = customer.Id
+            });
+
+            return View();
         }
     }
 }

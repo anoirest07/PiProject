@@ -21,6 +21,7 @@ namespace EventManage.Controllers
     public class TicketController : Controller
     {
         ITicketService it = new TicketService();
+        Ticket T = new Ticket();
         // GET: Ticket
         public ActionResult Index()
         {
@@ -78,7 +79,7 @@ namespace EventManage.Controllers
         public ActionResult Create(TicketViewModel tvm, int id, HttpPostedFileBase Image)
         {
 
-            Ticket T = new Ticket();
+          
             //Context ctx = new Context();
             //ctx.Ticket.Add(new  Ticket {
             //    IdEvent = tvm.IdEvent , 
@@ -97,11 +98,12 @@ namespace EventManage.Controllers
             
             
             
+            
             it.Add(T);
             it.Commit();
 
 
-            return View(tvm);
+            return RedirectToAction("Details", new { id = T.IdTicket }); 
          }
            
         
@@ -123,7 +125,7 @@ namespace EventManage.Controllers
         public ActionResult Edit(int id, HttpPostedFileBase Image, TicketViewModel tvm)
         {
             Ticket t = it.GetById(id);
-            t.IdTicket = tvm.IdTicket;
+            t.IdTicket = tvm.IdTicket=id;
             t.Prix = tvm.Prix;
             var path = Path.Combine(Server.MapPath("~/Content/Upload/"), Image.FileName);
             Image.SaveAs(path);

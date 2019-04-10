@@ -15,6 +15,22 @@ namespace EventManage.Controllers
     {
         ServiceUser us = new ServiceUser();
         IUserService uus = new UserService();
+
+        [HttpPost]
+        public void getId(String email, String password)
+        {
+            int id = 0;
+            var users = us.GetAll();
+            foreach (var i in users)
+            {
+                if (i.Email.Equals(email) && i.Password.Equals(password))
+                {
+                    id = i.Id;
+                }
+
+            }
+
+        }
         public ActionResult Index()
         {
             

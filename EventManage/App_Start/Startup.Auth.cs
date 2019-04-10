@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -9,6 +9,7 @@ using EventManage.Models;
 using DATA;
 using Domain;
 using Domain.Entities;
+using System.Configuration;
 
 namespace EventManage
 {
@@ -57,9 +58,9 @@ regenerateIdentityCallback: (manager, user) => user.GenerateUserIdentityAsync(ma
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

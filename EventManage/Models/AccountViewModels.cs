@@ -13,8 +13,14 @@ namespace EventManage.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Username")]
         public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -157,4 +163,5 @@ namespace EventManage.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+    
 }

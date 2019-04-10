@@ -5,36 +5,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="area-line">Details</h2>
 
 <div>
-    
-    <hr />
-    <dl class="dl-horizontal">
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prix)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Prix)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prix)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Logo)
-        </dt>
-        <div>
-            @*recuperer l'image*@
-            @{string path = "~/Content/Upload/" + @Html.DisplayFor(model => model.Logo);}
-            @*enlever label for pour afficher seulement l'image*@
+                <dd>
+                    @Html.DisplayFor(model => model.Prix)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Logo)
+                </dt>
+                <div>
+                    @*recuperer l'image*@
+                    @{string path = "~/Content/Upload/" + @Html.DisplayFor(model => model.Logo);}
+                    @*enlever label for pour afficher seulement l'image*@
 
-            <img src="@Url.Content(path)" width="120" height="120" />
+                    <img src="@Url.Content(path)" width="120" height="120" />
+                </div>
+                <p>
+                    <button class="btn btn-default">
+                        <i class=""></i>     @Html.ActionLink("Edit", "Edit", new { id = Model.IdTicket })
+                    </button>
+                </p>
+            </div>
+
+            </div>
         </div>
-
-
-
-    </dl>
-</div>
-<button class="btn btn-default">
-    <i class=""></i>     @Html.ActionLink("Edit", "Edit", new { id = Model.IdTicket })
-</button>
+        </div>
+        

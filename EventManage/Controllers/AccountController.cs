@@ -359,9 +359,10 @@ namespace EventManage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
-            // Request a redirect to the external login provider
+            // Demandez une redirection vers le fournisseur de connexions externe
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
+
 
         //
         // GET: /Account/SendCode
@@ -409,7 +410,7 @@ namespace EventManage.Controllers
                 return RedirectToAction("Login");
             }
 
-            // Sign in the user with this external login provider if the user already has a login
+            // Connecter cet utilisateur à ce fournisseur de connexion externe si l'utilisateur possède déjà une connexion
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
             {
@@ -421,10 +422,10 @@ namespace EventManage.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
                 case SignInStatus.Failure:
                 default:
-                    // If the user does not have an account, then prompt the user to create an account
+                    // Si l'utilisateur n'a pas de compte, invitez alors celui-ci à créer un compte
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel {UserName=loginInfo.DefaultUserName, Email = loginInfo.Email });
             }
         }
 
@@ -442,13 +443,13 @@ namespace EventManage.Controllers
 
             if (ModelState.IsValid)
             {
-                // Get the information about the user from the external login provider
+                // Obtenez des informations sur l’utilisateur auprès du fournisseur de connexions externe
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
                 if (info == null)
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.UserName, Email = model.Email };
                 var result = await Manager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -482,6 +483,12 @@ namespace EventManage.Controllers
         public ActionResult ExternalLoginFailure()
         {
             return View();
+        }
+        public static String RandomStringGenerator()
+        {
+            String randomString = Path.GetRandomFileName();
+            randomString = randomString.Replace(".", string.Empty);
+            return randomString;
         }
 
         protected override void Dispose(bool disposing)

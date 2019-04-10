@@ -9,7 +9,7 @@ namespace EventManage.Models
     public class TicketViewModel
     {
         public int IdTicket { get; set; }
-        public float Prix { get; set; }
+        public long Prix { get; set; }
         public Evenement Evenement { get; set; }
         public string Logo { get; set; }
         public int IdEvent { get; set; }
