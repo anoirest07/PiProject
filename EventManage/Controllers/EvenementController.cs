@@ -135,9 +135,13 @@ namespace EventManage.Controllers
             e.LocationEvent = "Tunisia";
             e.DateEventFin = EVM.DateEventFin;
             e.NbPlaceEvent = EVM.NbPlaceEvent;
+            // e.ImageEvent = file.FileName;
+            //// var path = Path.Combine(Server.MapPath("~/Content/"), file.FileName);
+            // file.SaveAs(Path.Combine(Server.MapPath("~/Content/"), file.FileName));
+            var fileName = Path.GetFileName(file.FileName);
+            var path = Path.Combine(Server.MapPath("~/Content/Upload/"), fileName);
+            file.SaveAs(path);
             e.ImageEvent = file.FileName;
-           // var path = Path.Combine(Server.MapPath("~/Content/"), file.FileName);
-            file.SaveAs(Path.Combine(Server.MapPath("~/Content/"), file.FileName));
             e.Welcometext = EVM.Welcometext;
             e.TeamFk = EVM.TeamFk;
                          

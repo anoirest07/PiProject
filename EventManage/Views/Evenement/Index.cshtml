@@ -66,7 +66,8 @@
                 @Html.DisplayFor(modelItem => item.NbPlaceEvent)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageEvent)
+       @{string path = "~/Content/Upload/" + @Html.DisplayFor(modelItem => item.ImageEvent);}
+                <img src="@Url.Content(path)" width="120" height="120" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Welcometext)
@@ -128,70 +129,71 @@
 
 
         <div class="row" id="content">
-           
+
 
 
             @foreach (var item in Model)
             {
 
-                <div class="col-md-6">
+            <div class="col-md-6">
 
-                    @{string path = "~/Content/Upload/" + @item.ImageEvent;}
-                    <div class="card" data-background="image" style="background-image:url(/Content/assets/img/sections/@item.ImageEvent)">
-                        <div class="card-body">
-                            <h6 class="card-category"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @Html.DisplayFor(modelItem => item.NomEvent)</font></font></h6>
-                            <a href="#pablo">
-                                <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Html.DisplayFor(modelItem => item.Welcometext)</font></font></h3>
-                            </a>
-                            <p class="card-description">
+                @{string path = "~/Content/Upload/" + @Html.DisplayFor(modelItem => item.ImageEvent);}
+                
+                <div class="card" data-background="image" style="background-image:url(/Content/Upload/@item.ImageEvent)">
+                    <div class="card-body">
+                        <h6 class="card-category"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @Html.DisplayFor(modelItem => item.NomEvent)</font></font></h6>
+                        <a href="#pablo">
+                            <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Html.DisplayFor(modelItem => item.Welcometext)</font></font></h3>
+                        </a>
+                        <p class="card-description">
+                            <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        @Html.DisplayFor(modelItem => item.DescriptionEvent)
-                                    </font>
+                                    @Html.DisplayFor(modelItem => item.DescriptionEvent)
                                 </font>
-                            </p>
-                            <br>
-                            <a href="@Url.Action("Details", "Evenement", new { id = item.IdEvent })" class="btn btn-danger btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i><font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
+                            </font>
+                        </p>
+                        <br>
+                        <a href="@Url.Action("Details", "Evenement", new { id = item.IdEvent })" class="btn btn-danger btn-round">
+                            <i class="fa fa-book" aria-hidden="true"></i><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
 
-                                        Details
-                                    </font>
+                                    Details
                                 </font>
-                            </a>
+                            </font>
+                        </a>
 
-                            <a href="/Evenement/MyCalendar" class="btn btn-neutral btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i><font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
+                        <a href="/Evenement/MyCalendar" class="btn btn-neutral btn-round">
+                            <i class="fa fa-book" aria-hidden="true"></i><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
 
-                                        Show in Calendar
-                                    </font>
+                                    Show in Calendar
                                 </font>
-                            </a>
+                            </font>
+                        </a>
 
-                            <div id="fb-root"></div>
-                            <script>
-                                (function (d, s, id) {
-                                    var js, fjs = d.getElementsByTagName(s)[0];
-                                    if (d.getElementById(id)) return;
-                                    js = d.createElement(s); js.id = id;
-                                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-                                    fjs.parentNode.insertBefore(js, fjs);
-                                }(document, 'script', 'facebook-jssdk'));</script>
+                        <div id="fb-root"></div>
+                        <script>
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
 
-                            <!-- Your share button code -->
-                            <div class="fb-share-button"
-                                 data-href="http://www.youtube.com"
-                                 data-layout="icon_link" data-size="large">
+                        <!-- Your share button code -->
+                        <div class="fb-share-button"
+                             data-href="http://www.youtube.com"
+                             data-layout="icon_link" data-size="large">
 
 
-                            </div>
                         </div>
-
-                        @*enlever label for pour afficher seulement l'image*@
-
                     </div>
+
+                    @*enlever label for pour afficher seulement l'image*@
+
                 </div>
+            </div>
             }
 
         </div>
@@ -231,8 +233,8 @@
                     content += `
      <div class="col-md-6">
 
-                    
-                    <div class="card" data-background="image" style="background-image:url(/Content/assets/img/sections/`+ e.ImageEvent + `)">
+
+                    <div class="card" data-background="image" style="background-image:url(/Content/Upload/`+ e.ImageEvent + `)">
                         <div class="card-body">
                             <h6 class="card-category"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">`+ e.NomEvent + `</font></font></h6>
                             <a href="#pablo">
@@ -241,7 +243,7 @@
                             <p class="card-description">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">
-                                        Event Description 
+                                        Event Description
                                     </font>
                                 </font>
                             </p>
@@ -255,7 +257,7 @@
                                 </font>
                             </a>
 
-                           
+
 
 <!-- Your share button code -->
 <div class="fb-share-button"
@@ -283,7 +285,7 @@
                 }
 
                 }
-           
+
 
         }
             );
