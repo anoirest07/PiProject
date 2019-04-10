@@ -286,6 +286,7 @@
     <Content Include="Content\assets\img\faces\kaci-baum-1.jpg" />
     <Content Include="Content\assets\img\faces\kaci-baum-2.jpg" />
     <Content Include="Content\assets\img\favicon.png" />
+    <Content Include="Content\assets\img\fb.png" />
     <Content Include="Content\assets\img\flume.jpg" />
     <Content Include="Content\assets\img\gallery\bottega.jpg" />
     <Content Include="Content\assets\img\gallery\bracelet.jpg" />

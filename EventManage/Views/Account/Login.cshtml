@@ -48,22 +48,23 @@
                                 <div>
                                     <button type="submit" class="btn btn-round btn-danger">Login</button>
                                 </div>
-                                <div class="clear text-center pt-10">
-                                    <a class="btn btn-round btn-danger" href="~/Account/Register">Not registred yet?</a>
-                                </div>
-
-
-
-
-
-                                }
-
+                            }
+                            <div class="clear text-center pt-10">
+                                <a class="btn btn-round btn-danger" href="~/Account/Register">Not registred yet?</a>
                             </div>
-                            <div class="col-md-12">
+
+
+
+                            <div class="area-line info info-horizontal">
                                 <section id="socialLoginForm">
                                     @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
                                 </section>
                             </div>
+
+
+
+                        </div>
+                            
                         
                         </div>
                 </div>

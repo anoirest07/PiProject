@@ -25,13 +25,10 @@
 
             </li>
             <li class="dropdown nav-item">
-                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "", new { id = item.Id })>Requests</a></span>
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "", new { id = item.Id })>Events</a></span>
 
             </li>
-            <li class="dropdown nav-item">
-                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Treatments</a></span>
-
-            </li>
+            
             <li class="dropdown nav-item">
                 <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Calendar</a></span>
 
@@ -41,16 +38,25 @@
 
             </li>
 
-           
+
 
         }
         else
         {
 
             <li class="dropdown nav-item">
-                <a class="dropdown-toggler nav-link" href=@Url.Action("", "", new { id = item.Id })>My treatments</a>
+                <a class="dropdown-toggler nav-link" href=@Url.Action("", "", new { id = item.Id })>Home</a>
 
             </li>
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggler nav-link" href=@Url.Action("", "", new {  })>Events</a>
+
+            </li>
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggler nav-link" href=@Url.Action("", "", new {  })>Blog</a>
+
+            </li>
+
             <li class="dropdown nav-item">
                 <a class="dropdown-toggler nav-link" href=@Url.Action("Details", "User",new { id = item.Id })>My Profil</a>
             </li>
