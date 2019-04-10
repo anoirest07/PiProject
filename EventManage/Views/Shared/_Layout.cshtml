@@ -98,7 +98,7 @@
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href=@Url.Action("Index", "Home") rel="" title="" data-placement="" target="">
-                   Spiritus
+                    Spiritus
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar bar1"></span>
@@ -109,52 +109,52 @@
 
             <div class="collapse navbar-collapse" data-nav-image="~/Content/assets/img/rihanna_cover.jpg" data-color="orange">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    @if (@User.Identity.IsAuthenticated)
-                    {
-                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    <li class="nav-item ">
+                        @if (@User.Identity.IsAuthenticated)
                         {
-                            @Html.AntiForgeryToken()
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
 
-                            <ul class="nav navbar-nav navbar-right ">
-                                <li>@Html.Action("UserConnected", "Home")</li>
-                                <li><a class="btn btn-round btn-danger action-line " href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                            </ul>
-                            
+                                <ul class="nav navbar-nav navbar-right ">
+                                    <li>@Html.Action("UserConnected", "Home")</li>
+                                    <li><a class="btn btn-round btn-danger action-linegooter " href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                </ul>
+
+                            }
+
+                        }
+                        else
+                        {
+                            <a class="btn btn-round btn-danger action-line" href="~/Account/Login"> Register/Login </a>
+
                         }
 
-                    }
-                    else
-                    {
-                       <a class="btn btn-round btn-danger action-line" href="~/Account/Login" > Register/Login </a>
-                    
-                    }
-
-                </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                        <p class="hidden-lg-up">Twitter</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-                        <i class="fab fa-facebook-square"></i>
-                        <p class="hidden-lg-up">Facebook</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                        <p class="hidden-lg-up">Instagram</p>
-                    </a>
-                </li> -->
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            <p class="hidden-lg-up">Twitter</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                            <i class="fab fa-facebook-square"></i>
+                            <p class="hidden-lg-up">Facebook</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <p class="hidden-lg-up">Instagram</p>
+                        </a>
+                    </li> -->
                 </ul>
 
 
             </div>
         </div>
-        
+
 
     </nav>
     <!-- End Navbar -->
@@ -180,10 +180,10 @@
             <div class="row">
                 <div class="col-md-2 col-sm-3 col-6 ml-auto mr-auto">
                     <div class="form-group dropup">
-                        
+
                     </div>
                     <div class="form-group dropup">
-                       
+
                     </div>
                 </div>
                 <div class="col-md-9 ml-auto mr-auto col-sm-9 col-12">
@@ -566,6 +566,8 @@
     </script>
     <script src="~/Content/assets/js/paper-kit.mindc68.js"></script>
     @Scripts.Render("Content/assets/js")
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
     <!--   Core JS Files   -->

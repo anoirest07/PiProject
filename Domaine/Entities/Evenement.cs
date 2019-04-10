@@ -12,6 +12,7 @@ namespace Domain.Entities
 {
     public enum Methodepaiement { Online, BoxOffice }
     public enum EtatEvent { Valide, NonValide }
+    public enum Categorie { Academic, Entertaining, Cultural, Other }
     public class Evenement
     {
         [Key]
@@ -29,13 +30,16 @@ namespace Domain.Entities
         public Methodepaiement Methodepai { get; set; }
         public EtatEvent EtatEvenement { get; set; }
         public virtual ICollection<Reclamation> Reclamations { get; set; }
+        public Categorie Category { get; set; }
+        public String ThemeColor { get; set; }
+        public Boolean IsFullDay { get; set; }
 
         //relation
         public ICollection<Feedback> Feedbacks { get; set; }
         public ICollection<Ticket> Tickets { get; set; }
         public int TeamFk { get; set; }
         public Team Team { get; set; }
-        public  Rapport Rapport { get; set; }
+        
        public virtual ICollection<Recomendation> Recomendations { get; set; }
         //public virtual ICollection<Participant> EventParticipants { get; set; }
         //public President EventPresident { get; set; }

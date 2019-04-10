@@ -118,6 +118,10 @@
     <Compile Include="AchatSer\IAchatService.cs" />
     <Compile Include="CommentService\CommentService.cs" />
     <Compile Include="CommentService\ICommentService.cs" />
+    <Compile Include="EvenementSer\EvenementService.cs" />
+    <Compile Include="EvenementSer\IEvenementService.cs" />
+    <Compile Include="EvenementSer\ITeamService.cs" />
+    <Compile Include="EvenementSer\TeamService.cs" />
     <Compile Include="NotificationSer\INotificationService.cs" />
     <Compile Include="NotificationSer\NotificationService.cs" />
     <Compile Include="OrganizerSer\IOrganizerService.cs" />

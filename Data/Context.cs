@@ -62,6 +62,7 @@ namespace DATA
             modelBuilder.Configurations.Add(new Cofiguration.AchatConfig());
             modelBuilder.Configurations.Add(new Cofiguration.FeedbackConfig());
             modelBuilder.Configurations.Add(new Cofiguration.ReclamationConfig());
+            modelBuilder.Configurations.Add(new Cofiguration.EvenementConfig());
 
 
 

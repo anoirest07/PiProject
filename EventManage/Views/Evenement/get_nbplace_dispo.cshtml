@@ -1,0 +1,150 @@
+﻿@model IEnumerable<EventManage.Models.EvenementViewModel>
+
+@{
+    ViewBag.Title = "get_nbplace_dispo";
+}
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>get_nbplace_dispo</title>
+    </head>
+    <body>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomEvent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateEventDebut)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateEventFin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationEvent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescriptionEvent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NbPlaceEvent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageEvent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Welcometext)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Methodepai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EtatEvenement)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamFk)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in @ViewBag.expproj)
+            {
+                <tr>
+                    <td>
+                        @item.NomEvent
+                    </td>
+                    <td>
+                        @item.DateEventDebut
+                    </td>
+                    <td>
+                        @item.DateEventFin
+                    </td>
+                    <td>
+                        @item.LocationEvent
+                    </td>
+                    <td>
+                        @item.DescriptionEvent
+                    </td>
+                    <td>
+                        @item.NbPlaceEvent
+                    </td>
+                    <td>
+                        @item.ImageEvent
+                    </td>
+                    <td>
+                        @item.Welcometext
+                    </td>
+                    <td>
+                        @item.Methodepai
+                    </td>
+                    <td>
+                        @item.Category
+                    </td>
+                    <td>
+                        @item.EtatEvenement
+                    </td>
+                    <td>
+                        @item.TeamFk
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IdEvent }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.IdEvent }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IdEvent })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </body>
+    </html>*@
+
+<div class="col-md-8 ml-auto mr-auto">
+    <h4 class="title">
+        <small>Availability</small>
+    </h4>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th> Event Name</th>
+                    <th>Starting Sate</th>
+                    <th>Ending Date</th>
+                  
+                    <th class="text-right"> Location </th>
+                    <th class="text-right"> Availability </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @ViewBag.expproj)
+                {
+                <tr>
+                    <td class="text-center"></td>
+                    <td>@item.NomEvent</td>
+                    <td> @item.DateEventDebut</td>
+                    <td>@item.DateEventFin</td>
+                   
+                    
+                    <td class="text-right">@item.LocationEvent</td>
+                    <td class="td-actions text-right">
+                        @item.NbPlaceEvent
+                    </td>
+                </tr>
+
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
