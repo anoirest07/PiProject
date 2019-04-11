@@ -32,5 +32,42 @@ namespace Service.TacheSer
             }
             return result;
         }
+        public IEnumerable<Tache> Listedemestaches(int Iduser)
+        {
+            var v = GetMany(t => t.OragnisateurFk == Iduser);
+
+            return v;
+        }
+
+        public IEnumerable<Tache> gettachenotification(DateTime afterDate, int Idusr)
+        {
+            var v = GetAll().Where(a => a.DeadlineTache > afterDate && a.OragnisateurFk == Idusr).OrderByDescending(a => a.DeadlineTache).ToList();
+
+
+            return v;
+        }
+
+
+
+
+        public bool Matache(int IdUser)
+        {
+          
+            Tache tache = new Tache();
+            bool result = false;
+
+         //if (GetAll().Last(x => x.OragnisateurFk == IdUser)!= null)
+         //   {
+
+         //   }
+               tache = GetAll().Last();
+
+
+            if (tache.OragnisateurFk == IdUser)
+            {
+                result = true;
+            }
+            return result;
+        }
     }
 }

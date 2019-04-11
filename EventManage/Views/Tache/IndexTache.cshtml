@@ -1,0 +1,146 @@
+﻿@model EventManage.Models.TacheModelView
+
+@{
+    ViewBag.Title = "Affectation des taches";
+    // Layout = "~/Views/Shared/_LayoutPresident.cshtml";
+
+
+}
+
+
+
+
+<div class="container">
+
+
+
+    <table class="table table-responsive">
+        <tr>
+            <th>Task Assigned</th>
+            <th>Orgnizer Name</th>
+            <th>Task Description</th>
+            <th>Deadline Task</th>
+            <th>State Tache</th>
+            <th colspan="2"><a href="#" class="btn btn-primary" onclick="AddEditTache(0)">Assigne new Task</a></th>
+
+        </tr>
+        <tbody>
+
+            @if (ViewBag.TacheList != null)
+            {
+
+                foreach (var item in ViewBag.TacheList)
+                {
+                    <tr id="row_@item.IdTache">
+                        <td>@item.Nom</td>
+                        <td>@item.OrgNom</td>
+                        <td>@item.DescTache</td>
+                        <td>@item.DeadlineTache</td>
+                        <td>@item.EtatdeTache</td>
+
+
+                        <td><a href="#" class="btn btn-success" onclick="AddEditTache(@item.IdTache)"><i class="glyphicon glyphicon-edit"></i> Edit</a> </td>
+                        <td><a href="#" class="btn btn-danger" onclick="ConfirmDelete(@item.IdTache)"><i class="glyphicon glyphicon-trash"></i> Delete </a> </td>
+
+
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+
+
+
+    <div class="modal fade" id="myModal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Add and Edit Task</h3>
+                </div>
+                <div class="modal-body" id="myModalBodyDiv1">
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Delete Task</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>Are you sure ? You want to delete this. </h4>
+
+                    <div style="text-align:center;display:none" id="loaderDiv">
+                        <img src="~/Content/BootstrapMarwa/InternetSlowdown_Day.gif" width="150" />
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                    <a href="#" class="btn btn-success" onclick="DeleteEmployee()">Confirm</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <input type="hidden" id="hiddenEmployeeId" />
+
+
+</div>
+
+<script>
+
+    var AddEditTache = function (IdTache) {
+
+        var url = "/Tache/AddEditTache?IdTache=" + IdTache;
+
+        $("#myModalBodyDiv1").load(url, function () {
+            $("#myModal1").modal("show");
+
+        })
+
+    }
+    var ConfirmDelete = function (IdTache) {
+
+        $("#hiddenEmployeeId").val(IdTache);
+        $("#myModal").modal('show');
+
+    }
+
+    var DeleteEmployee = function () {
+
+        $("#loaderDiv").show();
+
+        var empId = $("#hiddenEmployeeId").val();
+
+        $.ajax({
+
+            type: "POST",
+            url: "/Tache/DeleteTache",
+            data: { IdTache: empId },
+            success: function (result) {
+                $("#loaderDiv").hide();
+                $("#myModal").modal("hide");
+                $("#row_" + empId).remove();
+
+            }
+
+        })
+
+    }
+</script>
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+@*<link href="~/Content/BootstrapMarwa/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/BootstrapMarwa/bootstrap.min.js"></script>*@

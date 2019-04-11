@@ -1,0 +1,65 @@
+﻿@model EventManage.Models.TacheModelView
+
+@{
+    //Layout = null;
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h1 style="font-weight: bold">  My Tasks</h1>
+        <br />
+        <br />
+        <div class="container">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Task asigned
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DescTache)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DescTache)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeadlineTache)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeadlineTache)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EtatdeTache)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EtatdeTache)
+                </dd>
+
+
+
+
+
+
+
+            </dl>
+        </div>
+    </div>
+</body>
+</html>

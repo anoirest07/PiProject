@@ -1,0 +1,104 @@
+﻿@model EventManage.Models.TacheModelView
+<div>
+   
+    <form id="myForm">
+        @Html.HiddenFor(m => m.IdTache)
+        @Html.LabelFor(model => model.OragnisateurFk, "Organizer Name :")<br />
+        @*@Html.DropDownList("OragnisateurFk", ViewBag.ListOrganizers as SelectList, "--select--", new { @class = "form-control" })*@
+        @Html.DropDownList("Id", (SelectList)ViewData["Organ"], htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.OragnisateurFk)
+
+
+        @Html.LabelFor(model => model.EtatdeTache, "Task State :")<br />
+        @Html.EnumDropDownListFor(model => model.EtatdeTache, htmlAttributes: new { @class = "form-control" })
+
+        @Html.LabelFor(model => model.DeadlineTache, "Task Deadline :")<br />
+        <div class="input-group date" id="datetimepicker">
+            @Html.TextBoxFor(model => model.DeadlineTache, new { @class = "form-control fa fa-calendar" })
+
+            <div class="input-group-append">
+                <span class="input-group-text">
+                    <span class="glyphicon glyphicon-calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                </span>
+
+            </div>
+        </div>
+
+        @Html.LabelFor(model => model.Nom, "The Task :")<br />
+        @Html.EnumDropDownListFor(model => model.Nom, htmlAttributes: new { @class = "form-control" })
+
+
+        @Html.LabelFor(model => model.DescTache, "Add some Note :")<br /> 
+        @Html.TextAreaFor(model => model.DescTache, new { @class = "form-control", @rows = "3" })
+        @Html.ValidationMessageFor(model => model.DescTache, "", new { @class = "text-danger" })
+
+
+
+        <a href="#" id="btnSubmit" class="btn btn-success">
+            @if (Model.IdTache > 0)
+            {<span>Update</span> }
+            else
+            {<span>Save</span>}
+        </a>
+
+    </form>
+
+    <div style="text-align:center;display:none" id="loaderDiv">
+        <img src="~/Content/BootstrapMarwa/InternetSlowdown_Day.gif" width="100" />
+    </div>
+
+</div>
+
+
+<script>
+
+    $('#datetimepicker').datetimepicker({
+     format: 'DD/MM/YYYY HH:MM:SS',
+
+        minDate: new  Date(),
+        icons: {
+            
+            time: "fa fa-clock-o",
+            date: "fa fa-calendar",
+            up: "fa fa-chevron-up",
+            down: "fa fa-chevron-down",
+            previous: 'fa fa-chevron-left',
+            next: 'fa fa-chevron-right',
+            today: 'fa fa-screenshot',
+            clear: 'fa fa-trash',
+            close: 'fa fa-remove'
+            
+        }
+        
+
+    });
+
+
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+
+            $("#loaderDiv").show();
+
+            var myformdata = $("#myForm").serialize();
+
+            $.ajax({
+
+                type: "POST",
+                url: "/Tache/IndexTache",
+                data: myformdata,
+                success: function () {
+                    $("#loaderDiv").hide();
+                    $("#myModal").modal("hide");
+                    window.location.href = "/Tache/IndexTache";
+
+                }
+
+            })
+        })
+
+    })
+
+
+</script>
+

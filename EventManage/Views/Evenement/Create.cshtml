@@ -54,6 +54,19 @@
                                 <h6>
                                     <font style="vertical-align: inherit;">
                                         <font style="vertical-align: inherit;">
+                                            Location
+                                        </font>
+                                    </font><span class="icon-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span>
+                                </h6>
+                                @Html.EditorFor(model => model.LocationEvent, new { htmlAttributes = new { @class = "form-control border-input", placeholder = "Event Location" } })
+                                @Html.ValidationMessageFor(model => model.LocationEvent, "", new { @class = "text-danger" })
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Welcometext" data-valmsg-replace="true"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <h6>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
                                             Welcome text
                                         </font>
                                     </font><span class="icon-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span>
@@ -86,13 +99,13 @@
                                         </font>
                                     </font><span class="icon-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span>
                                 </h6>
-                                @Html.EditorFor(model => model.DateEventFin, new { htmlAttributes = new { @class = "form-control border-input", placeholder = "Event Date", type = "date", id = "fin" , onchange = "a();" } })
+                                @Html.EditorFor(model => model.DateEventFin, new { htmlAttributes = new { @class = "form-control border-input", placeholder = "Event Date", type = "date", id = "fin", onchange = "a();" } })
                                 @Html.ValidationMessageFor(model => model.DateEventFin, "", new { @class = "text-danger" })
 
                                 <span class="field-validation-valid text-danger" data-valmsg-for="DateEventFin" data-valmsg-replace="true"></span>
-                            
+
                                 <div id="valid" class="alert alert-danger" hidden role="alert">
-                                   Invalid begin date or end date
+                                    Invalid begin date or end date
                                 </div>
                             </div>
 

@@ -30,7 +30,7 @@
             </li>
             
             <li class="dropdown nav-item">
-                <span><a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Calendar</a></span>
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("IndexTache", "Tache")>Manage Task</a></span>
 
             </li>
             <li class="dropdown nav-item">
@@ -41,6 +41,19 @@
 
 
         }
+        else if (TempData["role"] == "Organizer")
+            {
+
+                <li class="dropdown nav-item">
+                    <a class="dropdown-toggler nav-link" href=@Url.Action("GetMyTasks", "Tache", new { id = item.Id })>My Tasks</a>
+
+                </li>
+                <li class="dropdown nav-item">
+                    <a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Notifications </a>
+                </li>
+
+
+            }
         else
         {
 

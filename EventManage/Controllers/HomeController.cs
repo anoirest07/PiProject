@@ -13,8 +13,11 @@ namespace EventManage.Controllers
     public class HomeController : Controller
 
     {
-        ServiceUser us = new ServiceUser();
-        IUserService uus = new UserService();
+        
+        ServiceUser us;
+        IUserService uus;
+        
+        
 
         [HttpPost]
         public void getId(String email, String password)
@@ -52,6 +55,8 @@ namespace EventManage.Controllers
         }
         public PartialViewResult UserConnected()
         {
+             us = new ServiceUser();
+             uus = new UserService();
             int currentUserId = 0;
             if (User.Identity.GetUserId() != "")
             {
@@ -107,6 +112,29 @@ namespace EventManage.Controllers
 
                 pvm.PhoneNumber = cuser.PhoneNumber;
                 List<Participant> listuser = new List<Participant>();
+                listuser.Add(pvm);
+                return PartialView(listuser);
+
+
+            }
+            else if (userstring.Contains("Organizer") == true)
+            {
+                ViewBag.role = "Organizer";
+
+                TempData["role"] = "Organizer";
+                Organizer pvm = new Organizer();
+                pvm.Id = cuser.Id;
+                pvm.LastName = cuser.LastName;
+                pvm.FirstName = cuser.FirstName;
+                pvm.City = cuser.City;
+                pvm.BirthDate = cuser.BirthDate;
+
+                pvm.Gender = cuser.Gender;
+                pvm.HomeAddress = cuser.HomeAddress;
+
+
+                pvm.PhoneNumber = cuser.PhoneNumber;
+                List<Organizer> listuser = new List<Organizer>();
                 listuser.Add(pvm);
                 return PartialView(listuser);
 

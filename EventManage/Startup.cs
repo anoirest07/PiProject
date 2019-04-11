@@ -10,6 +10,7 @@ namespace EventManage
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            app.MapSignalR();
             StripeConfiguration.SetApiKey("sk_test_710GBYxzG4bxy6ZYwyaxv9Uj");
 
             

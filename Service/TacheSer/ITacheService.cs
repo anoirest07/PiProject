@@ -12,6 +12,9 @@ namespace Service.TacheSer
     {
         // IEnumerable<Tache> IProfesseurService();
         bool DeleteTache(int employeeId);
+         IEnumerable<Tache> Listedemestaches(int Iduser);
+        IEnumerable<Tache> gettachenotification(DateTime afterDate, int Idusr);
+         bool Matache(int IdUser);
 
 
     }

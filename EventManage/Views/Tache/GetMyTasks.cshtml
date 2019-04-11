@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EventManage.Models.TacheModelView>
+
+@{
+   // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetMyTasks</title>
+</head>
+<body>
+     <h1 style="font-weight: bold">  My Tasks</h1>
+    <br />
+    <br />
+    <div class="container">
+        <table class="table table-striped">
+            <tr class="bg-warning">
+                <th>Task Assigned</th>
+
+                <th>Task Description</th>
+                <th>Deadline Task</th>
+                <th>View details</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescTache)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeadlineTache)
+                    </td>
+
+
+                    <td>
+
+                        @Html.ActionLink("Details", "Details", new { id = item.IdTache }, new  {@class = "btn btn-success btn-round" })
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <br />
+
+</body>
+</html>

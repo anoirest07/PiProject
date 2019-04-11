@@ -1,0 +1,68 @@
+﻿@model EventManage.Models.TacheModelView
+@{
+    // ViewBag.Title = "Index";
+   // Layout = "~/Views/Shared/_LayoutPresident.cshtml";
+
+}
+<div class="form-group">
+    <p> marwa div </p>
+    <form id="myForm">
+        @Html.HiddenFor(m => m.IdTache)
+
+        @*@Html.DropDownList("OragnisateurFk", ViewBag.ListOrganizers as SelectList, "--select--", new { @class = "form-control" })*@
+        @Html.DropDownList("Id", (SelectList)ViewData["Organ"])
+        @Html.ValidationMessageFor(model => model.OragnisateurFk)
+
+        @Html.EnumDropDownListFor(model => model.EtatdeTache, htmlAttributes: new { @class = "form-control" })
+        @Html.EditorFor(model => model.DeadlineTache, new { htmlAttributes = new { @class = "form-control datetimepicker" } })
+        @Html.EnumDropDownListFor(model => model.Nom, htmlAttributes: new { @class = "form-control" })
+        @Html.EditorFor(model => model.DescTache, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.DescTache, "", new { @class = "text-danger" })
+        <p> marwa</p>
+
+        <a href="#" id="btnSubmit" class="btn btn-success">
+            @if (Model.IdTache > 0)
+            {<span>Update</span> }
+            else
+            {<span>Save</span>}
+        </a>
+
+    </form>
+
+    <div style="text-align:center;display:none" id="loaderDiv">
+        <img src="~/Content/InternetSlowdown_Day.gif" width="100" />
+    </div>
+
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+
+            $("#loaderDiv").show();
+
+            var myformdata = $("#myForm").serialize();
+
+            $.ajax({
+
+                type: "POST",
+                url: "/Tache/IndexTache",
+                data: myformdata,
+                success: function () {
+                    $("#loaderDiv").hide();
+                    $("#myModal").modal("hide");
+                    window.location.href = "/Tache/IndexTache";
+
+                }
+
+            })
+        })
+
+    })
+
+
+</script>
+

@@ -4,6 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BibData.Conventions;
+using DATA.Conventions;
 using Domain;
 using Domain.Entities;
 using Domaine.Entities;
@@ -51,7 +53,7 @@ namespace DATA
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            modelBuilder.Conventions.Add(new DateTimeConvention());
 
             //Fluent API Configurations
             modelBuilder.Configurations.Add(new Cofiguration.UserConfig());

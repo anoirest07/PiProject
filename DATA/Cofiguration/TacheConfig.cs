@@ -14,7 +14,7 @@ namespace DATA.Cofiguration
         public TacheConfig()
         {
             HasRequired<Organizer>(t => t.Organisateur).WithMany(t => t.TachesAFaire).HasForeignKey(t => t.OragnisateurFk);
-            HasKey(t => new { t.IdTache, t.Nom });
+           // HasKey(t => new { t.IdTache, t.Nom });
         }
 
     }

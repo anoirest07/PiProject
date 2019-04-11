@@ -60,7 +60,7 @@
     @Styles.Render("~/Content/assets/css")
     <!-- Extra details for Live View on GitHub Pages -->
     <!-- Google Tag Manager -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>   
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script>
@@ -83,6 +83,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+   
 </head>
 <body class="about-us sidebar-collapse">
     <!-- Extra details for Live View on GitHub Pages -->
@@ -93,7 +94,11 @@
     <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg nav-down navbar-absolute navbar-transparent" color-on-scroll="500">
-
+        <span class="noti glyphicon glyphicon-bell"><span class="count">&nbsp;</span></span>
+        <div class="noti-content">
+            <div class="noti-top-arrow"></div>
+            <ul id="notiContent"></ul>
+        </div>
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href=@Url.Action("Index", "Home") rel="" title="" data-placement="" target="">
@@ -151,6 +156,11 @@
                 </ul>
 
 
+            </div>
+            <span class="noti glyphicon glyphicon-bell"> <img src="~/Content/notification-flat.png" width="40" height="40" /> <span class="count">&nbsp;</span></span>
+            <div class="noti-content">
+                <div class="noti-top-arrow"></div>
+                <ul id="notiContent"></ul>
             </div>
         </div>
 
@@ -702,7 +712,7 @@
 
         });
     </script>
-   
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <footer class="footer footer-big footer-black">
@@ -890,5 +900,192 @@
             </div>
         </div>
     </footer>
+    <input type="hidden" id="customInput" data-value="@EventManage.Controllers.OrganizerController.test" />
+    @* Add Jquery Library *@
+
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    @* Add css  *@
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    <style type="text/css">
+        /*Added css for design notification area, you can design by your self*/
+        /* COPY css content from youtube video description*/
+        .noti-content {
+            position: fixed;
+            right: 100px;
+            background: #e5e5e5;
+            border-radius: 4px;
+            top: 47px;
+            width: 250px;
+            display: none;
+            border: 1px solid #9E988B;
+        }
+
+        ul#notiContent {
+            max-height: 200px;
+            overflow: auto;
+            padding: 0px;
+            margin: 0px;
+            padding-left: 20px;
+        }
+
+            ul#notiContent li {
+                margin: 3px;
+                padding: 6px;
+                background: #fff;
+            }
+
+        .noti-top-arrow {
+            border-color: transparent;
+            border-bottom-color: #F5DEB3;
+            border-style: dashed dashed solid;
+            border-width: 0 8.5px 8.5px;
+            position: absolute;
+            right: 32px;
+            top: -8px;
+        }
+
+        span.noti {
+            color: #b6ff00;
+            background-color: transparent;
+            margin: 15px;
+            position: fixed;
+            right: 100px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        span.count {
+            position: relative;
+            top: -3px;
+            font-weight: bold;
+        }
+    </style>
+
+    @* Add jquery code for Get Notification & setup signalr *@
+    <script type="text/javascript">
+        $(function () {
+            // Click on notification icon for show notification
+            $('span.noti').click(function (e) {
+                e.stopPropagation();
+                $('.noti-content').show();
+                var count = 0;
+                count = parseInt($('span.count').html()) || 0;
+                //only load notification if not already loaded
+                if (count > 0) {
+                    updateNotification();
+                }
+                else {
+                    AddNotification();
+                }
+                $('span.count', this).html('&nbsp;');
+            })
+            // hide notifications
+            $('html').click(function () {
+                $('.noti-content').hide();
+            })
+            // update notification
+            function updateNotification() {
+                $('#notiContent').empty();
+                $('span.count').hide();
+                $('#notiContent').append($('<li>Loading. update..</li>'));
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/Tache/GetNotificationContacts',
+                    success: function (response) {
+                        $('#notiContent').empty();
+                        if (response.length == 0) {
+                            $('#notiContent').append($('<li>No data available</li>'));
+                            console.log(error);
+                        }
+                        $.each(response, function (index, value) {
+
+                            var date = ToJavaScriptDate(value.DeadlineTache);
+                            $('#notiContent').append($('<li>New contact : ' + value.DescTache + ' (' + date + ') added</li>'));
+                            console.log(response);
+                            console.log("update synchrone");
+                        });
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                })
+            }
+            function ToJavaScriptDate(value) {
+                var pattern = /Date\(([^)]+)\)/;
+                var results = pattern.exec(value);
+                var dt = new Date(parseFloat(results[1]));
+                return dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
+
+            }
+
+            // update notification
+            function AddNotification() {
+                $('#notiContent').empty();
+                $('#notiContent').append($('<li>Loading. add..</li>'));
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/Tache/GetNotification',
+
+                    success: function (response) {
+                        $('#notiContent').empty();
+                        if (response.length == 0) {
+                            $('#notiContent').append($('<li>No data available</li>'));
+                            console.log(error);
+                        }
+                        $.each(response, function (index, value) {
+                            var date = ToJavaScriptDate(value.DeadlineTache);
+                            $('#notiContent').append($('<li>New contact : ' + value.DescTache + ' (' + date + ') added</li>'));
+                            console.log(response);
+                            console.log("add list");
+                        });
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                })
+            }
+
+
+
+
+
+            // update notification count
+            function updateNotificationCount() {
+                var count = 0;
+                count = parseInt($('span.count').html()) || 0;
+                count++;
+                $('span.count').html(count);
+            }
+            // signalr js code for start hub and send receive notification
+            var notificationHub = $.connection.myHub;
+            $.connection.hub.start().done(function () {
+                console.log('Notification hub started');
+            });
+            var variable3 = $("#customInput").data("value");
+
+
+            //signalr method for push server message to client
+            notificationHub.client.notify = function (message) {
+                console.log('Notification mouch te5ou');
+                console.log(variable3);
+                //if (message && message.toLowerCase() == "added") {
+                //    updateNotificationCount();
+                //    console.log('Notification 3al 7it');
+                //}
+                if (message && message.toLowerCase() == "ok") {
+                    updateNotificationCount();
+                    console.log('Notification 3al 7it');
+                }
+                //if (message && message.toLowerCase() == "display") {
+                //    updateNotificationCount();
+                //}
+            }
+
+        })
+    </script>
+     <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="/signalr/hubs"></script>
 </body>
 </html>
