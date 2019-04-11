@@ -141,3 +141,8 @@ C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.csproj.Co
 C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.csproj.CopyComplete
 C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.dll
 C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.pdb
+C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.Migrations.marwa.resources
+C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.Migrations.maaaa.resources
+C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.Migrations.ff.resources
+C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.Migrations.aaa.resources
+C:\Users\anoir\OneDrive\Documents\GitHub\PiProject\DATA\obj\Debug\DATA.Migrations.tt.resources

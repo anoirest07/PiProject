@@ -26,7 +26,7 @@ namespace Domain.Entities
     {
 
         [Key]
-       
+       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdTache { get; set; }
         [Required(ErrorMessage = "Enter Name")]
         public NomTache Nom { get; set; }

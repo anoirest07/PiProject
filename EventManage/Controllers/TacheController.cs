@@ -352,17 +352,17 @@ namespace EventManage.Controllers
                    
 
 
-                    var client = new Client(creds: new Nexmo.Api.Request.Credentials
-                    {
-                        ApiKey = "46703f47",
-                        ApiSecret = "dzbFZkgQHi8FCzDz"
-                    });
-                    var results = client.SMS.Send(request: new SMS.SMSRequest
-                    {
-                        from = "Nexmo",
-                        to = "21628861641",
-                        text = "You have a new task to do before : "+model.DeadlineTache
-                    });
+                    //var client = new Client(creds: new Nexmo.Api.Request.Credentials
+                    //{
+                    //    ApiKey = "46703f47",
+                    //    ApiSecret = "dzbFZkgQHi8FCzDz"
+                    //});
+                    //var results = client.SMS.Send(request: new SMS.SMSRequest
+                    //{
+                    //    from = "Nexmo",
+                    //    to = "21628861641",
+                    //    text = "You have a new task to do before : "+model.DeadlineTache
+                    //});
 
 
                     Tache t = new Tache();
