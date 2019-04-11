@@ -514,13 +514,22 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AchatController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\EvenementApiController.cs" />
     <Compile Include="Controllers\EvenementController.cs" />
     <Compile Include="Controllers\FeedbacksController.cs" />
-    <Compile Include="Controllers\FeedbackViewModels.cs" />
+    <Compile Include="Controllers\WSPostController.cs" />
+    <Compile Include="Controllers\WSTicketController.cs" />
+    <Compile Include="Models\FeedbackViewModels.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LikesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrganizerController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\RecommendationController.cs" />
+    <Compile Include="Controllers\RewardController.cs" />
+    <Compile Include="Controllers\RewardsController.cs" />
     <Compile Include="Controllers\TacheAPIController.cs" />
     <Compile Include="Controllers\TacheController.cs" />
     <Compile Include="Controllers\WSReclamationController.cs" />
@@ -533,15 +542,20 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AchatViewModel.cs" />
+    <Compile Include="Models\BlogViewModel.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\EvenementViewModel.cs" />
-    <Compile Include="Models\FeedbackViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LikesViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MyHub.cs" />
     <Compile Include="Models\NotificationComponent.cs" />
     <Compile Include="Models\OrganizerModelView.cs" />
+    <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\RapportViewModel.cs" />
     <Compile Include="Models\ReclamationViewModels.cs" />
+    <Compile Include="Models\RecommendationViewModel.cs" />
+    <Compile Include="Models\RewardViewModel.cs" />
     <Compile Include="Models\TacheModelView.cs" />
     <Compile Include="Models\TeamViewModel.cs" />
     <Compile Include="Models\TicketViewModel.cs" />
@@ -1044,9 +1058,31 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Comment\SingleComment.cshtml" />
+    <Content Include="Views\Post\Comments.cshtml" />
+    <Content Include="Views\Post\Create.cshtml" />
+    <Content Include="Views\Post\Delete.cshtml" />
+    <Content Include="Views\Post\Details.cshtml" />
+    <Content Include="Views\Post\DetailsPost.cshtml" />
+    <Content Include="Views\Post\Edit.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Post\MostLiked.cshtml" />
+    <Content Include="Views\Recommendation\Create.cshtml" />
+    <Content Include="Views\Recommendation\Index.cshtml" />
+    <Content Include="Views\Rewards\Create.cshtml" />
+    <Content Include="Views\Rewards\Delete.cshtml" />
+    <Content Include="Views\Rewards\Details.cshtml" />
+    <Content Include="Views\Rewards\Edit.cshtml" />
+    <Content Include="Views\Rewards\Index.cshtml" />
+    <Content Include="Views\Reward\Create.cshtml" />
+    <Content Include="Views\Evenement\IndexParticipant.cshtml" />
+    <Content Include="Views\Evenement\DetailsParticipant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Blog\" />
+    <Folder Include="Views\Likes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

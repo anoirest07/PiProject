@@ -13,9 +13,8 @@ namespace DATA.Cofiguration
 
         public RecomendationConfig()
         {
-            HasRequired<Evenement>(t => t.Events).WithMany(t => t.Recomendations).HasForeignKey(t => t.EventId);
-            HasRequired<Participant>(t => t.Participants).WithMany(t => t.Recomendations).HasForeignKey(t => t.ParticipantId);
-            HasKey(t => new { t.IdRecom, t.EventId,t.ParticipantId });
+            HasRequired<Evenement>(t => t.Event).WithMany(t => t.Recomendations).HasForeignKey(t => t.IdEvent);
+            HasRequired<Participant>(t => t.Participant).WithMany(t => t.Recomendations).HasForeignKey(t => t.IdParticipant);
         }
     }
 }

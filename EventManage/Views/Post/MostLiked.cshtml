@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EventManage.Models.PostViewModel>
+
+
+<div class="col-md-4 ml-auto mr-auto">
+
+    <h6>Our Most Liked Posts</h6>
+    @foreach (var item in Model)
+    {
+
+        <div class="card card-plain card-blog">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h6 class="card-category text-danger">
+                            <i class="fa fa-free-code-camp" aria-hidden="true"></i>   @Html.DisplayFor(modelItem => item.Category)
+                        </h6>
+                        <h3 class="card-title">
+                            <a href="#pablo">  @Html.DisplayFor(modelItem => item.Title)</a>
+                        </h3>
+                        <p class="card-description">
+
+
+
+                        </p>
+                        @Html.ActionLink("Details", "Details", new { id = item.IdPost })
+                        <br />
+                        <p class="author">
+                            by
+                            <a href="#pablo">
+                                <b> @Html.DisplayFor(modelItem => item.ParticipantName)</b>
+                            </a>,  @Html.DisplayFor(modelItem => item.PostedOn)
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-image">
+                        @*recuperer l'image*@
+@{string path = "~/Content/Upload/" + @item.Photo;}
+@*enlever label for pour afficher seulement l'image*@
+<img src="@Url.Content(path)" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = item.IdPost }) |
+
+    @Html.ActionLink("Delete", "Delete", new { id = item.IdPost })
+</div>
+<br />
+    }
+</div>

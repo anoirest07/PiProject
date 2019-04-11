@@ -1,0 +1,138 @@
+﻿@model EventManage.Models.PostViewModel
+
+@{
+    ViewBag.Title = "DetailsPost";
+
+}
+
+<h2>DetailsPost</h2>
+
+<div>
+    <h4>PostViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParticipantId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParticipantId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParticipantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParticipantName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.IdPost }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@foreach (var item in Model.ListComments)
+{
+    @Html.AntiForgeryToken()
+    <div class="media">
+        <div class="d-flex">
+            <img src="img/schedule-1.jpg" alt="">
+        </div>
+        <div class="media-body">
+            <div class="row">
+                <div>
+                    <h5 id="OldDuration"> @Html.DisplayFor(modelItem => item.ContenuCom)</h5>
+                    <h4>@Html.DisplayFor(modelItem => item.DateCom)</h4>
+                    <p>Speech by: Mark weins</p>
+                </div>
+                <div>
+                    @*<a class="main_btn" href="@Url.Action("Edit", "Scheduler", new {  id=3 })">Edit</a>*@
+                    <a class="main_btn" data-toggle="modal" data-target=".bootstrapmodal">Edit</a>
+                </div>
+            </div>
+            @*  @using (Html.BeginForm("EditScheduler", "Event"))
+                {*@
+            <div class="modal fade bootstrapmodal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="model-header">
+                            <button data-dismiss="modal" class="close"><span>&times;</span></button>
+                            <div class="modal-title"><h2>Edit The Program</h2></div>
+                        </div>
+                        <div class="modal-body">
+                            Duration:
+                            @Html.EditorFor(modelItem => item.CommentId, new { htmlAttributes = new { @class = "form-control", @id = "CommentId" } })
+                            @Html.ValidationMessageFor(modelItem => item.ContenuCom, "", new { @class = "text-danger" })
+                            Program Name:
+                            @Html.EditorFor(modelItem => item.ParticipantId, new { htmlAttributes = new { @class = "form-control", @id = "ParticipantId" } })
+                            <div style="display:none">@Html.EditorFor(modelItem => item.CommentId, new { htmlAttributes = new { @class = "form-control", @id = "CommentId" } })</div>
+                        </div>
+                        <div class="modal-footer">
+                            @*<div class="form-group">
+                                   <div class="col-md-offset-2 col-md-10">
+                                           <input type="submit" value="Create" class="btn btn-default" />
+                                   </div>
+                                </div>*@
+                            <a class="main_btn" OnClick="addition()">Update</a>
+                            <button class="btn btn-default" data-dismiss="modal">cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+@using (Html.BeginForm("create", "Comment", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <tr>
+        <td style=" display: none;" id="panel">
+            <input type="textarea" name="commentaire" placeholder="commentaire" />
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <button type="submit" value="submit" class="btn btn-primary">save</button>
+        </td>
+    </tr>
+
+
+}

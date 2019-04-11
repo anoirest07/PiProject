@@ -13,8 +13,25 @@ namespace Service.RecommendationService
     {
          private static IDatabaseFactory databaseFactory = new DatabaseFactory();
     private static IUnitOfWork unit = new UnitOfWork(databaseFactory);
-    public RecommendationService() : base(unit)
-    {
+        public RecommendationService() : base(unit)
+        {
+        }
+        public List<Recomendation> GetByIdEvent(int id)
+        {
+
+            List<Recomendation> list = unit.getRepository<Recomendation>().GetAll().ToList();
+            list = list.FindAll(x => x.IdEvent.Equals(id)).ToList();
+            return list;
+        }
+        //public List<Recomendation> GetSuccess(string email)
+        //{
+
+        //    List<Recomendation> list = unit.getRepository<Recomendation>().GetAll().ToList();
+        //    list = list.FindAll(x => x.IdEvent.Equals(id)).ToList();
+        //    return list;
+        //}
+
+
     }
-}
+
 }

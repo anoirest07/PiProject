@@ -122,6 +122,8 @@
     <Compile Include="EvenementSer\IEvenementService.cs" />
     <Compile Include="EvenementSer\ITeamService.cs" />
     <Compile Include="EvenementSer\TeamService.cs" />
+    <Compile Include="LikeService\ILikeService.cs" />
+    <Compile Include="LikeService\LikeService.cs" />
     <Compile Include="NotificationSer\INotificationService.cs" />
     <Compile Include="NotificationSer\NotificationService.cs" />
     <Compile Include="OrganizerSer\IOrganizerService.cs" />
@@ -130,6 +132,8 @@
     <Compile Include="ReclamationSer\ReclamationService.cs" />
     <Compile Include="RecommendationService\IRecommendationService.cs" />
     <Compile Include="RecommendationService\RecommendationService.cs" />
+    <Compile Include="RewardService\IRewardService.cs" />
+    <Compile Include="RewardService\RewardService.cs" />
     <Compile Include="servicePosts\IServicePost.cs" />
     <Compile Include="servicePosts\ServicePost.cs" />
     <Compile Include="TacheSer\ITacheService.cs" />

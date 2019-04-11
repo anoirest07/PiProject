@@ -10,23 +10,23 @@ using Domain.Entities;
 namespace Domain.Entities
 {
     public enum EtatRecom { valide, notvalide, inprogress }
-    
-   public class Recomendation
+
+    public class Recomendation
     {
-       
-        public int IdRecom { get; set; }
-
-       
-        public int EventId { get; set; }
-
-
-   
-        public int ParticipantId { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         
+        public int ID { get; set; }
 
-        public Evenement Events { get; set; }
-        public Participant Participants { get; set; }
-        public string MailRecomd { get; set; }
+        public String EmailParticipent { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
         public EtatRecom EtaRec { get; set; }
+        public int? IdEvent { get; set; }
+        public virtual Evenement Event { get; set; }
+
+        public int IdParticipant { get; set; }
+        public virtual Participant Participant { get; set; }
+
     }
 }

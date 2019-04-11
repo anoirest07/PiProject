@@ -12,6 +12,7 @@ namespace Domain.Entities
         ICollection<Tache> Taches { get; set; }
         public ICollection<Team> OrganisateursTeam { get; set; }
         public ICollection<Tache> TachesAFaire { get; set; }
+        public virtual ICollection<Reward> ListReward { get; set; }
         // public ICollection<Evenement> OrganizerEvents { get; set; }
 
         //public int TeamFK { get; set; }

@@ -1,0 +1,19 @@
+﻿@model EventManage.Models.CommentViewModel
+<ul>
+    <li style="padding: 15px;background: #9c9c9c47;">
+        <img class="position-center-x" src="" style="width:80px;
+height:80px;">
+
+        <div class="comment-detail">
+            <h5><a href="#">by Foudhaili Feres</a></h5>
+            <span>25/03/2019 </span>
+            <p>@Model.ContenuCom</p>
+        </div>
+    </li>
+</ul>
+
+<div style="background: #9c9c9c47 ; height: 42px; ">
+    <div class="share-option pull-right">
+        <span><a href="javascript:void(0)" onclick="supprimerCommentaire(@Model.CommentId,@Model.PostId)" style="float: right"><i class="fa fa-trash-o fa-lg"></i></a></span>
+    </div>
+</div>

@@ -107,9 +107,12 @@
     <Compile Include="Cofiguration\CommentConfig.cs" />
     <Compile Include="Cofiguration\EvenementConfig.cs" />
     <Compile Include="Cofiguration\FeedbackConfig.cs" />
+    <Compile Include="Cofiguration\LikesConfig.cs" />
+    <Compile Include="Cofiguration\PostConfig.cs" />
     <Compile Include="Cofiguration\RapportConfig.cs" />
     <Compile Include="Cofiguration\ReclamationConfig.cs" />
     <Compile Include="Cofiguration\RecomendationConfig.cs" />
+    <Compile Include="Cofiguration\RewardConfig.cs" />
     <Compile Include="Cofiguration\TacheConfig.cs" />
     <Compile Include="Cofiguration\TeamConfig.cs" />
     <Compile Include="Cofiguration\TicketConfig.cs" />
@@ -153,6 +156,10 @@
     <Compile Include="Migrations\201904110124169_tt.Designer.cs">
       <DependentUpon>201904110124169_tt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904110313001_mokh.cs" />
+    <Compile Include="Migrations\201904110313001_mokh.Designer.cs">
+      <DependentUpon>201904110313001_mokh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -187,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904110124169_tt.resx">
       <DependentUpon>201904110124169_tt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904110313001_mokh.resx">
+      <DependentUpon>201904110313001_mokh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

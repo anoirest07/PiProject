@@ -37,6 +37,8 @@ namespace Domain.Entities
         //relation
         public ICollection<Feedback> Feedbacks { get; set; }
         public ICollection<Ticket> Tickets { get; set; }
+        
+        public virtual ICollection<Reward> Rewards { get; set; }
         public int TeamFk { get; set; }
         public Team Team { get; set; }
         

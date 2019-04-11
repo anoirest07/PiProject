@@ -50,6 +50,9 @@ namespace DATA
         public DbSet<Ticket> Ticket { get; set; }
         public DbSet<Reclamation> Reclamation { get; set; }
         public DbSet<Answer> Answer { get; set; }
+        public DbSet<Comment> CommentViewModels { get; set; }
+        public DbSet<Likes> Likes { get; set; }
+        public DbSet<Reward> Rewards { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -65,6 +68,9 @@ namespace DATA
             modelBuilder.Configurations.Add(new Cofiguration.FeedbackConfig());
             modelBuilder.Configurations.Add(new Cofiguration.ReclamationConfig());
             modelBuilder.Configurations.Add(new Cofiguration.EvenementConfig());
+            modelBuilder.Configurations.Add(new Cofiguration.RewardConfig());
+            modelBuilder.Configurations.Add(new Cofiguration.LikesConfig());
+            modelBuilder.Configurations.Add(new Cofiguration.PostConfig());
 
 
 

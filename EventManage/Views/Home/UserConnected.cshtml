@@ -28,9 +28,13 @@
                 <span><a class="dropdown-toggler nav-link" href=@Url.Action("Index", "Evenement", new { id = item.Id })>Events</a></span>
 
             </li>
-            
+
             <li class="dropdown nav-item">
                 <span><a class="dropdown-toggler nav-link" href=@Url.Action("IndexTache", "Tache")>Manage Task</a></span>
+
+            </li>
+            <li class="dropdown nav-item">
+                <span><a class="dropdown-toggler nav-link" href=@Url.Action("Index", "Post")>Blog</a></span>
 
             </li>
             <li class="dropdown nav-item">
@@ -42,23 +46,26 @@
 
         }
         else if (TempData["role"] == "Organizer")
-            {
+        {
 
-                <li class="dropdown nav-item">
-                    <a class="dropdown-toggler nav-link" href=@Url.Action("GetMyTasks", "Tache", new { id = item.Id })>My Tasks</a>
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggler nav-link" href=@Url.Action("GetMyTasks", "Tache", new { id = item.Id })>My Tasks</a>
 
-                </li>
-                <li class="dropdown nav-item">
-                    <a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Notifications </a>
-                </li>
+            </li>
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggler nav-link" href=@Url.Action("", "")>Notifications </a>
+            </li>
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggler nav-link" href=@Url.Action("charts", "Feedbacks")>Statistic </a>
+            </li>
 
 
-            }
+        }
         else
         {
 
             <li class="dropdown nav-item">
-                <a class="dropdown-toggler nav-link" href=@Url.Action("", "", new { id = item.Id })>Home</a>
+                <a class="dropdown-toggler nav-link" href=@Url.Action("Index", "Home")>Home</a>
 
             </li>
             <li class="dropdown nav-item">
@@ -66,7 +73,7 @@
 
             </li>
             <li class="dropdown nav-item">
-                <a class="dropdown-toggler nav-link" href=@Url.Action("", "", new {  })>Blog</a>
+                <a class="dropdown-toggler nav-link" href=@Url.Action("Index", "Post")>Blog</a>
 
             </li>
 

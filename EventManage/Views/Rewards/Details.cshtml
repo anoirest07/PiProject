@@ -1,0 +1,82 @@
+﻿@model Domaine.Entities.Reward
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reward</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.NomEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.NomEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organizer.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organizer.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstReward)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstReward)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondReward)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondReward)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThirdReward)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThirdReward)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RewardId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

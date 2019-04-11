@@ -107,6 +107,7 @@
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Evenement.cs" />
     <Compile Include="Entities\Feedback.cs" />
+    <Compile Include="Entities\Likes.cs" />
     <Compile Include="Entities\Notification.cs" />
     <Compile Include="Entities\Organizer.cs" />
     <Compile Include="Entities\Participant.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Entities\Rapport.cs" />
     <Compile Include="Entities\Reclamation.cs" />
     <Compile Include="Entities\Recomendation.cs" />
+    <Compile Include="Entities\Reward.cs" />
     <Compile Include="Entities\Tache.cs" />
     <Compile Include="Entities\Team.cs" />
     <Compile Include="Entities\Ticket.cs" />

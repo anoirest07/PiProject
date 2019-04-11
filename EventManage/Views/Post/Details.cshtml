@@ -1,0 +1,329 @@
+﻿@model EventManage.Models.PostViewModel
+@{string path = "~/Content/Upload/" + @Model.Photo;}
+@{
+    ViewBag.Title = "Details2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Details2</h2>
+
+<hr style="border:none" />
+<h2>DetailsPublication 2</h2>
+@*<main class="main-content">
+
+        <!-- Blog -->
+
+        <div class="container">
+            <div class="row">
+                <!-- Blog Content -->
+                <div class="col-lg-9 col-md-9 col-sm-7 col-xs-12">
+
+                    <!-- Blog detail -->
+                    <div class="blog-detail-holder" style="border:6px solid #999999;border-radius: 30px">
+                        <div class="author-header" style="background-color:white; ;border-radius: 30px 30px 0px 0px ;" ">
+                            <h2 style="text-align:center">@Model.Title</h2>
+                            <div class="aurhor-img-name pull-left">
+                                <img src="images/aurthor-img.jpg" alt="">
+                                <strong>by <i class="red-color">George Kvasnikov</i></strong>
+                                <span>on @Model.PostedOn </span>
+                            </div>
+                            <div class="share-option pull-right">
+                                <span id="share-btn1"><i class="fa fa-share-alt"></i>Share</span>
+                                <div id="show-social-icon1" class="on-hover-share">
+                                    <ul class="social-icons">
+                                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                        <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-detail">
+                            <figure>
+                                <img src="@Url.Content(path)" width="600px" height="800" " alt="">
+                            </figure>
+                            <article>
+                                <p>@Model.Description</p>
+                            </article>
+                        </div>
+                        <div class="tags-holder">
+                            <ul class="tags-list pull-left">
+                                <li><i class="fa fa-tags"></i>Tags</li>
+                                <li>
+                                    <a href="#">
+                                        @Ajax.ActionLink("get comments", "GetComments", new { PostId = Model.IdPost }, new AjaxOptions()
+                               {
+                                   HttpMethod = "Get",
+                                   UpdateTargetId = "Divcomment",
+                                   InsertionMode = InsertionMode.Replace
+
+
+                               })
+                                    </a>
+                                </li>
+                                <li>
+                                    <div style="background: #9c9c9c47 ; height: 42px; ">
+                                        <input type="text" id="commentaire" name="commentaire" />
+                                        <a type="button" class="btn btn-labeled btn-danger" href="javascript:void(0)" onclick="ajouterCommentaire(@Model.IdPost )" style="float: right">Commenter</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" id="post-comment">
+                                        Post
+                                    </a>
+                                </li>
+                                <li><a href="#">cups</a></li>
+                            </ul>
+                            <ul class="social-icons pull-right">
+                                <li>Share this post</li>
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="next-prev-option">
+                            <a href="#" class="prev-blog pull-left">
+                                <img src="images/blog-detail/prev-img.jpg" alt="">
+                                <span><i class="fa fa-angle-left"></i>Previous Post</span>
+                                <h5>Tottenham Hotspur are growing</h5>
+                                <span class="m-0">23 December 2015</span>
+                            </a>
+                            <a href="#" class="next-blog pull-right">
+                                <img src="images/blog-detail/next-img.jpg" alt="">
+                                <span>Next Post<i class="fa fa-angle-right"></i></span>
+                                <h5>Tottenham Hotspur are growing</h5>
+                                <span class="m-0">23 December 2015</span>
+                            </a>
+                        </div>
+                        <div id="Divcomment">
+                            @Html.Action("GetComments", new { PostId = Model.IdPost })
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <textarea id="comm" class="form-control style-d" rows="2" placeholder="Write Comments here..."></textarea>
+                            <i class="fa fa-pencil-square-o"></i>
+                        </div>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </div>
+
+            </div>
+    </main>*@
+
+
+
+<!--debut interface details 2-->
+<!--       debut details post -->
+
+<div class="row">
+    <div class="col-md-10 ml-auto mr-auto">
+        <div class="text-center">
+            <span class="badge badge-warning main-tag">@Html.DisplayFor(model => model.Category)</span>
+            <a href="javascrip: void(0);">
+                <h3 class="title">@Html.DisplayFor(model => model.Title)</h3>
+            </a>
+            <h6 class="title-uppercase"> @Html.DisplayFor(model => model.PostedOn)</h6>
+        </div>
+    </div>
+    <div class="col-md-8 ml-auto mr-auto">
+        <a href="javascrip: void(0);">
+            <div class="card" data-radius="none" style="background-image: url('../assets/img/sections/daniel-olahs.jpg');">
+                @*recuperer l'image*@
+
+                @*enlever label for pour afficher seulement l'image*@
+                <img src="@Url.Content(path)" />
+            </div>
+            <p class="image-thumb text-center">Posted By: @Html.DisplayFor(model => model.ParticipantName) </p>
+        </a>
+        <div class="article-content">
+            <h4>Post Description :</h4>
+            <p>
+                @*@Html.DisplayFor(model => model.Description)*@
+            </p>
+
+            <blockquote class="blockquote">
+                <p> @Html.DisplayFor(model => model.Description)</p>
+                <footer>
+                    - @Html.DisplayFor(model => model.ParticipantName)
+                    <cite title="Source Title"> </cite>
+                </footer>
+            </blockquote>
+
+
+        </div>
+        <br>
+        <div class="article-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Tags:</h5>
+
+                        <span class="badge badge-warning">@Html.DisplayFor(model => model.Category)</span>
+                    </div>
+                    <div class="col-md-4 ml-auto">
+                        <div class="sharing">
+                            <h5>Spread the word</h5>
+                            <button class="btn btn-just-icon btn-twitter">
+                                <i class="fa fa-twitter"></i>
+                            </button>
+                            <button class="btn btn-just-icon btn-facebook">
+                                <i class="fa fa-facebook"> </i>
+                            </button>
+                            <button class="btn btn-just-icon btn-google">
+                                <i class="fa fa-google"> </i>
+                            </button>
+                        </div>
+
+                        <br />
+                        <a type="button" class="btn btn-info btn-round" href="@Url.Action("Like", "Likes", new {  id=Model.IdPost })">Like This Post</a>
+                        <button class="btn btn-link btn-danger btn-just-icon" type="submit" href="@Url.Action("Like", "Likes", new {  id=Model.IdPost })">@Html.DisplayFor(model => model.Like) <i class="nc-icon nc-favourite-28"></i></button>
+                        <a href="#">
+                            @Ajax.ActionLink("get comments", "GetComments", new { PostId = Model.IdPost }, new AjaxOptions()
+                   {
+                       HttpMethod = "Get",
+                       UpdateTargetId = "Divcomment",
+                       InsertionMode = InsertionMode.Replace
+
+
+                   })
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--ajout commentaire-->
+
+        @*<div style="background: #9c9c9c47 ; height: 42px; ">
+            <input type="text" id="commentaire" name="commentaire" />
+            <a type="button" class="btn btn-labeled btn-danger" href="javascript:void(0)" onclick="ajouterCommentaire(@Model.IdPost )" style="float: right">Commenter</a>
+        </div>*@
+        <!--fin ajout commentaire-->
+        <!--test ajout commentaire-->
+
+        <div class="media media-post">
+            <a class="pull-left author" href="#paper-kit">
+                <div class="avatar">
+                    <img class="media-object" alt="64x64" src="~/Content/assets/img/faces/clem-onojeghuo-2.jpg">
+                </div>
+            </a>
+            <div class="media-body">
+                <textarea class="form-control border-input" placeholder="Write some nice stuff or nothing..." rows="6"  type="text" id="commentaire" name="commentaire" ></textarea>
+                <div class="media-footer">
+                    <button href="javascript:void(0)" onclick="ajouterCommentaire(@Model.IdPost )" class="btn btn-info btn-wd pull-right" type="submit">Post Comment</button>
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <!--fin test ajout commentaire-->
+        <br />
+        <div id="Divcomment">
+            @Html.Action("GetComments", new { PostId = Model.IdPost })
+        </div>
+        <hr>
+
+    </div>
+</div>
+<!-- fin  post -->
+@section Scripts{
+    <script>
+    $(function() {
+        function getContent(){
+            return document.getElementById("comm").value
+        }
+
+        $("#comm").keyup(function (e){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                var idpub=@Model.IdPost ;
+                var contenu = document.getElementById("comm").value;
+                if (contenu == "") {
+                    window.alert("un commentairene peut pas etre vide ");
+                }
+                else {
+
+                    $.ajax({
+                        url: '@Url.Action("PostComment", "Post")' + "?contenu=" + contenu + "&idpub=" + idpub,
+                        type: "POST",
+                        success: function (result) {
+                            $('#Divcomment').append(result)
+                            $("#comm").val("")
+                        }
+                        //data: {id: idpub, con: contenu},
+                    })
+                    /* .done(function (response) {
+                     debugger;
+
+                     //$('#Divcomment').html(response);
+                     alert(respose.d)
+
+                 });*/
+                }
+            }
+
+
+        })
+    });
+    </script>
+    <script>
+        function ajouterCommentaire() {
+            var contenu = $("#commentaire").val();
+            var idpub = @Model.IdPost;
+            $.ajax({
+
+                url: "/Post/CreateComment/",
+                type: 'POST',
+                data: { PostId: idpub , ContenuCom: contenu },
+                success: function (result) {
+
+                            $('#Divcomment').append(result)
+                            $("#comm").val("")
+                        }
+            }).done(function (response) {
+               // debugger;
+
+                $('#commentaires').html(response);
+
+            });
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        //function loadData() {
+        //    $.ajax({
+        //        url: "/Post/GetComments/" + "?PostId=" + 6,
+        //        type: "GET",
+        //        contentType: "application/json;charset=utf-8",
+        //        dataType: "json",
+        //        success: function (result) {
+        //            var html = '';
+        //            $.each(result, function (key, item) {
+        //                html += '<tr>';
+        //                html += '<td>' + item.ContenuCom + '</td>';
+        //                html += '</tr>';
+        //            });
+        //            $('#commentaires').html(response);
+        //        },
+        //        error: function (errormessage) {
+        //            alert(errormessage.responseText);
+        //        }
+        //    });
+        //}
+    </script>
+}

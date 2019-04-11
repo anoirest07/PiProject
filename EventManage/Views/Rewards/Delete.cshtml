@@ -1,0 +1,88 @@
+﻿@model Domaine.Entities.Reward
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Reward</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.NomEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.NomEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organizer.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organizer.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstReward)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstReward)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondReward)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondReward)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThirdReward)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThirdReward)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

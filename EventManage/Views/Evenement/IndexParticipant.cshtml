@@ -1,0 +1,280 @@
+﻿@model IEnumerable<EventManage.Models.EvenementViewModel>
+@using Newtonsoft.Json;
+@{
+    ViewBag.Title = "IndexParticipant";
+
+
+
+}
+<!--
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateEventDebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateEventFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescriptionEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbPlaceEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Welcometext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamFk)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEventDebut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEventFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbPlaceEvent)
+            </td>
+            <td>
+       @{string path = "~/Content/Upload/" + @Html.DisplayFor(modelItem => item.ImageEvent);}
+                <img src="@Url.Content(path)" width="120" height="120" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Welcometext)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamFk)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdEvent }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdEvent }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdEvent })
+            </td>
+        </tr>
+    }
+
+</table>
+-->
+<meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Your Website Title" />
+<meta property="og:description" content="Your description" />
+<meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
+<div class="projects-1">
+    <div class="container">
+        <div class="row">
+            <div class="project-pills">
+                <ul class="nav nav-pills nav-pills-danger">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#pill-1" role="tab" aria-selected="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">All</font></font></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" onclick='a("Academic")' role="tab" aria-selected="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Academic</font></font></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" onclick='a("Cultural")' role="tab" aria-selected="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cultural</font></font></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" onclick='a("Entertaining")' role="tab" aria-selected="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Entertaining</font></font></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" onclick='a("Other")' role="tab" aria-selected="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Other</font></font></a>
+                    </li>
+
+
+                </ul>
+                <!-- Pill panes -->
+                <div class="tab-content">
+                    <div class="tab-pane" id="pill-1" role="tabpanel"></div>
+                    <div class="tab-pane active" id="pill-2" role="tabpanel"></div>
+                    <div class="tab-pane" id="pill-3" role="tabpanel"></div>
+                    <div class="tab-pane" id="pill-4" role="tabpanel"></div>
+                    <div class="tab-pane" id="pill-5" role="tabpanel"></div>
+                    <div class="tab-pane" id="pill-6" role="tabpanel"></div>
+                </div>
+            </div>
+        </div>
+        <div class="space-top"></div>
+
+
+        <div class="row" id="content">
+
+
+
+            @foreach (var item in Model)
+            {
+
+            <div class="col-md-6">
+
+                @{string path = "~/Content/Upload/" + @Html.DisplayFor(modelItem => item.ImageEvent);}
+                
+                <div class="card" data-background="image" style="background-image:url(/Content/Upload/@item.ImageEvent)">
+                    <div class="card-body">
+                        <h6 class="card-category"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @Html.DisplayFor(modelItem => item.NomEvent)</font></font></h6>
+                        <a href="#pablo">
+                            <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Html.DisplayFor(modelItem => item.Welcometext)</font></font></h3>
+                        </a>
+                        <p class="card-description">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    @Html.DisplayFor(modelItem => item.DescriptionEvent)
+                                </font>
+                            </font>
+                        </p>
+                        <br>
+                        <a href="@Url.Action("DetailsParticipant", "Evenement", new { id = item.IdEvent })" class="btn btn-danger btn-round">
+                            <i class="fa fa-book" aria-hidden="true"></i><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+
+                                    Details
+                                </font>
+                            </font>
+                        </a>
+
+                        <a href="/Evenement/MyCalendar" class="btn btn-neutral btn-round">
+                            <i class="fa fa-book" aria-hidden="true"></i><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+
+                                    Show in Calendar
+                                </font>
+                            </font>
+                        </a>
+
+                        <div id="fb-root"></div>
+                        <script>
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+
+                        <!-- Your share button code -->
+                        <div class="fb-share-button"
+                             data-href="http://www.youtube.com"
+                             data-layout="icon_link" data-size="large">
+
+
+                        </div>
+                    </div>
+
+                    @*enlever label for pour afficher seulement l'image*@
+
+                </div>
+            </div>
+            }
+
+        </div>
+       
+
+    </div>
+</div>
+
+<script>
+    function a(x) {
+
+        $.ajax({
+            type: "POST",
+            url: "/Evenement/filter",
+            data: { cat: x },
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                $('#content').html("")
+                var content = ""
+                if (data.message.length != 0) {
+                data.message.map(e => {
+
+                    content += `
+     <div class="col-md-6">
+
+
+                    <div class="card" data-background="image" style="background-image:url(/Content/Upload/`+ e.ImageEvent + `)">
+                        <div class="card-body">
+                            <h6 class="card-category"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">`+ e.NomEvent + `</font></font></h6>
+                            <a href="#pablo">
+                                <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">`+ e.Welcometext + `</font></font></h3>
+                            </a>
+                            <p class="card-description">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Event Description
+                                    </font>
+                                </font>
+                            </p>
+                            <br>
+                            <a href="Evenement/Details/`+ e.IdEvent + ` " class="btn btn-danger btn-round">
+                                <i class="fa fa-book" aria-hidden="true"></i><font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+
+                                        Details
+                                    </font>
+                                </font>
+                            </a>
+
+
+
+<!-- Your share button code -->
+<div class="fb-share-button"
+     data-href="http://www.youtube.com"
+     data-layout="icon_link" data-size="large">
+
+
+</div>
+                        </div>
+
+@*enlever label for pour afficher seulement l'image*@
+
+                    </div>
+                </div>
+
+
+`
+                })
+                $("#content").html(content)
+            }
+                else
+                {
+                    content="<center><h3> No Events with this Tag was found </h3></center><br><br>"
+                    $("#content").html(content)
+                }
+
+                }
+
+
+        }
+            );
+    }
+</script>

@@ -24,14 +24,17 @@ namespace EventManage.Controllers
         }
 
         // GET: api/EvenementApi/5
-        public string Get(int id)
+        public Evenement Get(int id)
         {
-            return "value";
+            return Es.GetById(id);
         }
 
         // POST: api/EvenementApi
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post([FromBody]Evenement value)
         {
+            Es.Add(value);
+            Es.Commit();
+            return Ok("ajoute");
         }
 
         // PUT: api/EvenementApi/5
@@ -40,8 +43,15 @@ namespace EventManage.Controllers
         }
 
         // DELETE: api/EvenementApi/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            Evenement tc = new Evenement();
+
+            tc = Es.GetById(id);
+            Es.Delete(tc);
+            Es.Commit();
+            return Ok("supprime");
+
         }
     }
 }

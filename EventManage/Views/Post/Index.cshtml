@@ -1,0 +1,102 @@
+﻿@model IEnumerable<EventManage.Models.PostViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<centre>
+    <h2 class="area-line">Liste des Posts</h2>
+</centre>
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @*Un seul bouton pour les deux recherches*@
+    <table>
+        <tr>
+            <td>
+                <div>
+                    @Html.TextBox("searchString")
+
+                    @*filtrage avec dropdowlist*@
+                    @Html.DropDownList("filtre", (SelectList)ViewData["filtre"], "---- SVP selectionnez----", new { htmlAttributes = new { @class = "form-control" } })
+
+
+                </div>
+            </td>
+            <td> <input type="submit" value="Rechercher" id="recherche" /> </td>
+        </tr>
+
+    </table>
+    <p></p>
+    <p></p>
+    <div class="col-md-2">
+        <button class="btn btn-block">@Html.ActionLink("Create", "Create")</button>
+    </div>
+}
+
+<br />
+<br />
+
+
+<div class="row" align="left">
+    <div class="col-md-7  ">
+
+        @foreach (var item in Model)
+        {
+
+            <div class="card card-plain card-blog">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h6 class="card-category text-danger">
+                                <i class="fa fa-free-code-camp" aria-hidden="true"></i>   @Html.DisplayFor(modelItem => item.Category)
+                            </h6>
+                            <h3 class="card-title">
+                                <a href="#pablo">  @Html.DisplayFor(modelItem => item.Title)</a>
+                            </h3>
+                            <p class="card-description">
+                                @Html.DisplayFor(modelItem => item.Description)
+
+
+                            </p>
+                            @Html.ActionLink("Details", "Details", new { id = item.IdPost })
+                            <br />
+                            <p class="author">
+                                by
+                                <a href="#pablo">
+                                    <b> @Html.DisplayFor(modelItem => item.ParticipantName)</b>
+                                </a>,  @Html.DisplayFor(modelItem => item.PostedOn)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-image">
+                            @*recuperer l'image*@
+                            @{string path = "~/Content/Upload/" + @item.Photo;}
+                            @*enlever label for pour afficher seulement l'image*@
+                            <img src="@Url.Content(path)" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-block col-md-2 btn-outline-primary btn-round" > @Html.ActionLink("Edit", "Edit", new { id = item.IdPost }) </button>
+
+                <button class="btn btn-block col-md-2 btn-outline-primary btn-round">  @Html.ActionLink("Delete", "Delete", new { id = item.IdPost })</button>
+            </div>
+            <br />
+        }
+    </div>
+    <div class="col-md-1">.</div>
+
+    @Html.Partial("MostLiked")
+
+</div>
+
+
+<!-- end card -->

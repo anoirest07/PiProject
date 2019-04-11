@@ -17,24 +17,47 @@ namespace Service.servicePosts
         {
         }
 
-        //public IEnumerable<Post> ListCategorie()
-        //{
-        //    //var c = GetMany(t => t.Category == Categorie.type1);
-        //    //foreach (var item in c)
-        //    //{
-        //    //    Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title+ " Departement" + item.Description +"    " + item.Photo +"  "+item.PostedOn);
-        //    //}
-        //    //return c;
-        //}
+        public IEnumerable<Post> ListCategorie()
+        {
+            var c = GetMany(t => t.Category == Categories.type1);
+            foreach (var item in c)
+            {
+                Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title+ " Departement" + item.Description +"    " + item.Photo +"  "+item.PostedOn);
+            }
+            return c;
+        }
 
-        //public IEnumerable<Post> ListCategorie2()
-        //{
-        //    //var c = GetMany(t => t.Category == Categorie.type2);
-        //    //foreach (var item in c)
-        //    //{
-        //    //    Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title + " Departement" + item.Description + "    " + item.Photo + "  " + item.PostedOn);
-        //    //}
-        //    //return c;
-        //}
+        public IEnumerable<Post> ListCategorie2()
+        {
+            var c = GetMany(t => t.Category == Categories.type2);
+            foreach (var item in c)
+            {
+                Console.WriteLine(" code " + item.IdPost + " Nom " + item.Title + " Departement" + item.Description + "    " + item.Photo + "  " + item.PostedOn);
+            }
+            return c;
+        }
+
+
+        public IEnumerable<Post> MostLikedPost()
+        {
+            var c = GetAll().OrderByDescending(t => t.Like).Take(2);
+            foreach (var item in c)
+            {
+                Console.WriteLine(" code " + item.Title + " Nom " + item.ParticipantName + " salaire " + item.ParticipantId);
+            }
+            return c;
+        }
+
+        public IEnumerable<Post> Search(string SearchValue)
+        {
+            var c = GetAll().Where( x => x.Title.ToString().StartsWith(SearchValue) );
+            foreach (var item in c)
+            {
+                Console.WriteLine(" code " + item.Title + " Nom " + item.ParticipantName + " salaire " + item.ParticipantId);
+            }
+            return c;
+        }
+
+
     }
 }

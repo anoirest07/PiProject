@@ -29,7 +29,7 @@ namespace EventManage.Models
         public Categorie Category { get; set; }
         public EtatEvent EtatEvenement { get; set; }
 
-        public ICollection<FeedbackViewModel> Feedbacks { get; set; }
+        public ICollection<FeedbackViewModels> Feedbacks { get; set; }
         public int TeamFk { get; set; }
         public TeamViewModel Team { get; set; }
         public RapportViewModel Rapport { get; set; }

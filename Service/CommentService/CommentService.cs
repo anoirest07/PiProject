@@ -16,5 +16,17 @@ namespace Service.CommentService
         public CommentService() : base(unit)
         {
         }
+        public int GetCommentNumber(int id)
+        {
+            return unit.getRepository<Comment>().GetMany(p => p.PostId == id).Count();
+        }
+        public List<Comment> nbrComment(int id)
+        {
+
+            List<Comment> list = unit.getRepository<Comment>().GetAll().ToList();
+            list = list.FindAll(x => x.PostId.Equals(id)).ToList();
+            return list;
+        }
+
     }
 }

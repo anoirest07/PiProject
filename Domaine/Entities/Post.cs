@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-  public  class Post
+    public enum Categories { type1 , type2 }
+    public  class Post
     {
         [Key]
         public int IdPost { get; set; }
@@ -20,6 +22,17 @@ namespace Domain.Entities
 
         [Required(ErrorMessage = "PostedOn: Field is required")]
         public  DateTime PostedOn { get; set; }
+
+        [DataType(DataType.ImageUrl)]
+        public string Photo { get; set; }
+        public Categories Category { get; set; }
+        public int ParticipantId { get; set; }
+        public string ParticipantName { get; set; }
+        public int Like { get; set; }
+        public int commentss { get; set; }
+        // public Participant Participants { get; set; }
+
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Likes> Likess { get; set; }
     }
 }

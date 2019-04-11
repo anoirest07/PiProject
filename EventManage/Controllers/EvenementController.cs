@@ -60,10 +60,46 @@ namespace EventManage.Controllers
             }
             ViewBag.cats = cats;
 
-            if(!String.IsNullOrEmpty(search))
+           
+            return View(lists);
+        }
+
+
+        public ActionResult IndexParticipant(string search)
+        {
+
+            ts = new TeamService();
+            Es = new EvenementService();
+            List<EvenementViewModel> lists = new List<EvenementViewModel>();
+            List<string> cats = new List<string>();
+
+            cats.Add("Academic");
+            cats.Add("Entertaining");
+            cats.Add("Cultural");
+            cats.Add("Other");
+            foreach (var item in Es.GetAll())
             {
-                lists = lists.Where(e => e.NomEvent.Contains(search)).ToList();
+                EvenementViewModel evm = new EvenementViewModel();
+                evm.IdEvent = item.IdEvent;
+                evm.NomEvent = item.NomEvent;
+                evm.DateEventDebut = item.DateEventDebut;
+                evm.DateEventFin = item.DateEventFin;
+                evm.LocationEvent = item.LocationEvent;
+                evm.DescriptionEvent = item.DescriptionEvent;
+                evm.NbPlaceEvent = item.NbPlaceEvent;
+                evm.ImageEvent = item.ImageEvent;
+                evm.Welcometext = item.Welcometext;
+                evm.Category = (EventManage.Models.Categorie)item.Category;
+                evm.Methodepai = (EventManage.Models.Methodepaiement)item.Methodepai;
+                evm.EtatEvenement = (EventManage.Models.EtatEvent)item.EtatEvenement;
+
+                //dvm.Etat.Equals(item.Etat);
+                lists.Add(evm);
+
             }
+            ViewBag.cats = cats;
+
+
             return View(lists);
         }
 
@@ -98,6 +134,30 @@ namespace EventManage.Controllers
 
             return View(evm);
         }
+
+
+        public ActionResult DetailsParticipant (int id)
+        {
+            ts = new TeamService();
+            Es = new EvenementService();
+            var even = Es.GetById(id);
+
+
+            EvenementViewModel evm = new EvenementViewModel();
+
+            evm.NomEvent = even.NomEvent;
+            evm.EtatEvenement = (EventManage.Models.EtatEvent)even.EtatEvenement;
+            evm.LocationEvent = even.LocationEvent;
+            evm.NbPlaceEvent = even.NbPlaceEvent;
+            evm.DateEventDebut = even.DateEventDebut;
+            evm.DateEventFin = even.DateEventFin;
+            evm.TeamFk = even.TeamFk;
+
+            return View(evm);
+        }
+
+
+
 
         // GET: Evenement/Create
         public ActionResult Create()

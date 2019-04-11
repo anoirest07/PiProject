@@ -7,13 +7,13 @@ namespace DATA.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class acce : IMigrationMetadata
+    public sealed partial class mokh : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(acce));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mokh));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904110218259_acce"; }
+            get { return "201904110313001_mokh"; }
         }
         
         string IMigrationMetadata.Source
