@@ -29,7 +29,7 @@ namespace DATA
             Database.SetInitializer<Context>(null);
         }
 
-        public Context() : base("name=EventDB")
+        public Context() : base("name=EventManage")
         {
 
         }

@@ -128,37 +128,9 @@
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\201904101741338_v1.cs" />
-    <Compile Include="Migrations\201904101741338_v1.Designer.cs">
-      <DependentUpon>201904101741338_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904102348502_mr.cs" />
-    <Compile Include="Migrations\201904102348502_mr.Designer.cs">
-      <DependentUpon>201904102348502_mr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904110110419_marwa.cs" />
-    <Compile Include="Migrations\201904110110419_marwa.Designer.cs">
-      <DependentUpon>201904110110419_marwa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904110117165_maaaa.cs" />
-    <Compile Include="Migrations\201904110117165_maaaa.Designer.cs">
-      <DependentUpon>201904110117165_maaaa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904110119383_ff.cs" />
-    <Compile Include="Migrations\201904110119383_ff.Designer.cs">
-      <DependentUpon>201904110119383_ff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904110121371_aaa.cs" />
-    <Compile Include="Migrations\201904110121371_aaa.Designer.cs">
-      <DependentUpon>201904110121371_aaa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904110124169_tt.cs" />
-    <Compile Include="Migrations\201904110124169_tt.Designer.cs">
-      <DependentUpon>201904110124169_tt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904110313001_mokh.cs" />
-    <Compile Include="Migrations\201904110313001_mokh.Designer.cs">
-      <DependentUpon>201904110313001_mokh.cs</DependentUpon>
+    <Compile Include="Migrations\201904110612136_version-1.cs" />
+    <Compile Include="Migrations\201904110612136_version-1.Designer.cs">
+      <DependentUpon>201904110612136_version-1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,29 +146,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904101741338_v1.resx">
-      <DependentUpon>201904101741338_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904102348502_mr.resx">
-      <DependentUpon>201904102348502_mr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904110110419_marwa.resx">
-      <DependentUpon>201904110110419_marwa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904110117165_maaaa.resx">
-      <DependentUpon>201904110117165_maaaa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904110119383_ff.resx">
-      <DependentUpon>201904110119383_ff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904110121371_aaa.resx">
-      <DependentUpon>201904110121371_aaa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904110124169_tt.resx">
-      <DependentUpon>201904110124169_tt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904110313001_mokh.resx">
-      <DependentUpon>201904110313001_mokh.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904110612136_version-1.resx">
+      <DependentUpon>201904110612136_version-1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
